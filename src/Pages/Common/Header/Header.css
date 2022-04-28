@@ -1,0 +1,32 @@
+.header-container {
+    box-shadow: 0 1px 10px rgb(78 82 99 / 15%);
+}
+
+.header-container .container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+}
+
+.site-logo h3 {
+    color: #444;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.navigation, .entry-point {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navigation a {
+    color: #444;
+    font-weight: 500;
+    transition: .3s ease-in-out;
+}
+
+.navigation a:hover {
+    color: #0c3eb8;
+}
