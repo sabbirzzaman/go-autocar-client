@@ -7,7 +7,7 @@ const Banner = () => {
         <div className="banner-container">
             <div className="container">
                 <div className="banner-content">
-                    <h1>Find Your Next Car at autoRoyal</h1>
+                    <h1>Find Your Next Car at Go AutoCar</h1>
                     <p>
                         Allow us to guide you through the innovative stress free
                         approach in finding your dream car.

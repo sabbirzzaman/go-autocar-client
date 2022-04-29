@@ -6,11 +6,15 @@ import './Inventory.css';
 
 const Inventory = () => {
     const [cars, setCars] = useState([]);
+
     useEffect(() => {
         fetch('data.json')
             .then((res) => res.json())
             .then((data) => setCars(data));
     }, []);
+
+    // Set limited item for frontpage
+    const recentCars = cars.slice(0, 6);
 
     return (
         <div className="inventory-container">
@@ -19,7 +23,7 @@ const Inventory = () => {
                     <h2>Our Inventory</h2>
                 </div>
                 <div className="inventory">
-                    {cars.map((car) => (
+                    {recentCars.map((car) => (
                         <InventoryItem key={car._id} car={car}></InventoryItem>
                     ))}
                 </div>
