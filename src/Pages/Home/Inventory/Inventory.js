@@ -1,3 +1,5 @@
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import InventoryItem from '../InventoryItem/InventoryItem';
 import './Inventory.css';
@@ -20,6 +22,9 @@ const Inventory = () => {
                     {cars.map((car) => (
                         <InventoryItem key={car._id} car={car}></InventoryItem>
                     ))}
+                </div>
+                <div className="all-inventory">
+                    <button>View All <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></button>
                 </div>
             </div>
         </div>

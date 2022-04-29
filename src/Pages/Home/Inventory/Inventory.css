@@ -1,3 +1,10 @@
+.inventory-container {
+    background-image: url('../../../images/bg-shape.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .inventory-container .container {
     padding: 80px 0;
 }
@@ -5,5 +12,28 @@
 .inventory {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 40px;
+}
+
+.inventory-title {
+    margin-bottom: 40px;
+}
+
+.all-inventory {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.all-inventory button {
+    background-color: #f0f7ff;
+    color: #2c425d;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.all-inventory button:hover {
+    background-color: #2c425d;
+    color: #f0f7ff;
 }

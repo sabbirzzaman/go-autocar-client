@@ -4,7 +4,7 @@
       "name": "Mazda MAZDA6",
       "image": "https://i.ibb.co/6HTTCqW/car1.jpg",
       "price": "$3,797",
-      "age": 15,
+      "quantity": 15,
       "supplier": "Mazda",
       "description": "Nisi cupidatat aute sint nisi nulla nisi aute nulla ipsum esse nostrud id id. Ea enim velit qui cillum veniam exercitation ullamco in amet velit tempor consectetur cupidatat irure."
     },
@@ -13,7 +13,7 @@
       "name": "Audi A4",
       "image": "https://i.ibb.co/QcjwVhj/car2.jpg",
       "price": "$1,503",
-      "age": 8,
+      "quantity": 8,
       "supplier": "Audi",
       "description": "Nisi cupidatat aute sint nisi nulla nisi aute nulla ipsum esse nostrud id id. Ea enim velit qui cillum veniam exercitation ullamco in amet velit tempor consectetur cupidatat irure."
     },
@@ -22,7 +22,7 @@
       "name": "Audi A6",
       "image": "https://i.ibb.co/K58hQRW/car3.jpg",
       "price": "$3,166",
-      "age": 14,
+      "quantity": 14,
       "supplier": "Audi",
       "description": "Nisi cupidatat aute sint nisi nulla nisi aute nulla ipsum esse nostrud id id. Ea enim velit qui cillum veniam exercitation ullamco in amet velit tempor consectetur cupidatat irure."
     },
@@ -31,7 +31,7 @@
       "name": "Honda CR-V",
       "image": "https://i.ibb.co/ygmhXSS/car4.jpg",
       "price": "$3,135",
-      "age": 7,
+      "quantity": 7,
       "supplier": "Honda",
       "description": "Nisi cupidatat aute sint nisi nulla nisi aute nulla ipsum esse nostrud id id. Ea enim velit qui cillum veniam exercitation ullamco in amet velit tempor consectetur cupidatat irure."
     },
@@ -40,7 +40,7 @@
       "name": "Volvo S80",
       "image": "https://i.ibb.co/41kN7br/car5.jpg",
       "price": "$3,567",
-      "age": 10,
+      "quantity": 10,
       "supplier": "Volvo",
       "description": "Nisi cupidatat aute sint nisi nulla nisi aute nulla ipsum esse nostrud id id. Ea enim velit qui cillum veniam exercitation ullamco in amet velit tempor consectetur cupidatat irure."
     },
@@ -49,7 +49,7 @@
       "name": "BMW M4",
       "image": "https://i.ibb.co/cQKW3G2/car6.jpg",
       "price": "$3,491",
-      "age": 4,
+      "quantity": 4,
       "supplier": "BMW",
       "description": "Nisi cupidatat aute sint nisi nulla nisi aute nulla ipsum esse nostrud id id. Ea enim velit qui cillum veniam exercitation ullamco in amet velit tempor consectetur cupidatat irure."
     }
