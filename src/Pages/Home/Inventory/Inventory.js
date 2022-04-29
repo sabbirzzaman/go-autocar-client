@@ -1,6 +1,7 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useCars from '../../../hooks/useCars';
 import InventoryItem from '../InventoryItem/InventoryItem';
 import './Inventory.css';
@@ -11,6 +12,8 @@ const Inventory = () => {
 
     // Set limited item for frontpage
     const recentCars = cars.slice(0, 6);
+
+    const navigate = useNavigate();
 
     return (
         <div className="inventory-container">
@@ -24,7 +27,7 @@ const Inventory = () => {
                     ))}
                 </div>
                 <div className="all-inventory">
-                    <button>View All <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></button>
+                    <button onClick={() => {navigate('/inventory')}}>View All <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></button>
                 </div>
             </div>
         </div>

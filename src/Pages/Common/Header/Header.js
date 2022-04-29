@@ -1,9 +1,28 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import './Header.css'
 
 const Header = () => {
     const navigate = useNavigate();
+
+    // Header active link
+    function CustomLink({ children, to, ...props }) {
+        let resolved = useResolvedPath(to);
+        let match = useMatch({ path: resolved.pathname, end: true });
+      
+        return (
+          <div>
+            <Link
+              style={{ color: match ? "#0c3eb8" : "" }}
+              to={to}
+              {...props}
+            >
+              {children}
+            </Link>
+          </div>
+        );
+      }
+
     return (
         <div className='header-container'>
            <nav className="container">
@@ -12,12 +31,12 @@ const Header = () => {
                </div>
 
                <div className="navigation">
-                    <Link to='/home'>Home</Link>
-                    <Link to='/about'>About</Link>
-                    <Link to='/inventory'>Inventory</Link>
+                    <CustomLink to='/home'>Home</CustomLink>
+                    <CustomLink to='/about'>About</CustomLink>
+                    <CustomLink to='/inventory'>Inventory</CustomLink>
 
                     <div className="entry-point">
-                        <Link to='/login'>Login</Link>
+                        <CustomLink to='/login'>Login</CustomLink>
                         <button onClick={() => navigate('/register')}>Register</button>
                     </div>
                </div>
