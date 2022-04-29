@@ -29,7 +29,7 @@ const InventoryItem = ({ car }) => {
                     <small title={description}>{shortDescription}...</small>
                 </p>
             </div>
-            <button onClick={() => navigate(`inventory/${_id}`)}>Manage Stock</button>
+            <button onClick={() => navigate(`/inventory/${_id}`)}>Manage Stock</button>
         </div>
     );
 };

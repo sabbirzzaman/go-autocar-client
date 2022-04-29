@@ -1,0 +1,108 @@
+.form-container {
+    padding: 100px 0;
+    background-image: url('../../../images/bg-shape.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.form-container .container {
+    max-width: 500px;
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.form-title h2 {
+    font-size: 38px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.field-group input:not(input[type='submit']) {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #f0f7ff;
+    background-color: #f9fcffb0;
+    border-radius: 4px;
+}
+
+.field-group label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.password-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password-label a {
+    font-weight: 600;
+    transition: .3s ease-in-out;
+}
+
+.password-label a:hover {
+    color: #0c3eb8;
+}
+
+.user-help {
+    margin-top: 10px;
+}
+
+.user-help p {
+    color: #444;
+}
+
+.user-help a {
+    font-weight: 600;
+    transition: .3s ease-in-out;
+}
+
+.user-help a:hover {
+    color: #0c3eb8;
+}
+
+.divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #444;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.divider:after,
+.divider:before {
+    content: '';
+    display: block;
+    background: #444;
+    width: 30%;
+    height: 1px;
+    margin: 0 10px;
+}
+
+.social-login button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.google-btn {
+    margin-bottom: 10px;
+}
+
+.facebook-btn {
+    background-color: #0c3eb8;
+}
+
+.facebook-btn:hover {
+    background-color: #0C3A96;
+}

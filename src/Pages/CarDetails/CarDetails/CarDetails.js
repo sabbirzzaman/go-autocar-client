@@ -43,9 +43,10 @@ const CarDetails = () => {
                             onSubmit={handleSubmit(onSubmit)}
                         >
                             <input
-                                type="text"
+                                type="number"
                                 placeholder="Enter quantity"
                                 {...register('addToInventory')}
+                                required
                             />
                             <input type="submit" value="Add Cars" />
                         </form>
