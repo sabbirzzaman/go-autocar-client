@@ -3,8 +3,10 @@ import './CarDetails.css'
 
 const CarDetails = () => {
     return (
-        <div>
-            
+        <div className='car-details'>
+            <div className="container">
+                
+            </div>
         </div>
     );
 };

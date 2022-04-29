@@ -6,6 +6,9 @@ import './InventoryItem.css';
 
 const InventoryItem = ({ car }) => {
     const { _id, name, image, price, quantity, supplier, description } = car;
+
+    const shortDescription = description.slice(0, 130);
+
     const navigate = useNavigate();
 
     return (
@@ -22,7 +25,7 @@ const InventoryItem = ({ car }) => {
                     <span><FontAwesomeIcon icon={faCar}></FontAwesomeIcon>{quantity}</span>
                 </div>
                 <p>
-                    <small>{description}</small>
+                    <small title={description}>{shortDescription}...</small>
                 </p>
             </div>
             <button onClick={() => navigate(`inventory/${_id}`)}>Manage Stock</button>
