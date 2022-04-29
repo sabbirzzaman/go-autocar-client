@@ -22,7 +22,7 @@ const InventoryItem = ({ car }) => {
                     <small>{description}</small>
                 </p>
             </div>
-            <button>Update</button>
+            <button>Manage Stock</button>
         </div>
     );
 };
