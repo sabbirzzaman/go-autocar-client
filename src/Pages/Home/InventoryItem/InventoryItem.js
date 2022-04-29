@@ -7,6 +7,7 @@ import './InventoryItem.css';
 const InventoryItem = ({ car }) => {
     const { _id, name, image, price, quantity, supplier, description } = car;
 
+    // short description for home page
     const shortDescription = description.slice(0, 130);
 
     const navigate = useNavigate();

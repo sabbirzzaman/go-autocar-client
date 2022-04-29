@@ -1,17 +1,13 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useCars from '../../../hooks/useCars';
 import InventoryItem from '../InventoryItem/InventoryItem';
 import './Inventory.css';
 
 const Inventory = () => {
-    const [cars, setCars] = useState([]);
-
-    useEffect(() => {
-        fetch('data.json')
-            .then((res) => res.json())
-            .then((data) => setCars(data));
-    }, []);
+    // get inventory data using custom hook
+    const [cars] = useCars('http://localhost:5000/cars');
 
     // Set limited item for frontpage
     const recentCars = cars.slice(0, 6);

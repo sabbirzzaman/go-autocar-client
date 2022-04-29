@@ -1,3 +1,103 @@
-.car-details {
+.car-details-container {
     padding: 80px 0;
+}
+
+.car-details-container .container {
+    max-width: 900px;
+}
+
+.car-manage-container {
+    display: grid;
+    grid-template-columns: 68% 28%;
+    gap: 4%;
+    margin-bottom: 20px;
+}
+
+.car-info p {
+    display: inline-block;
+    background-color: #f0f7ff;
+    color: #0c3eb8;
+    padding: 5px 15px;
+    margin-bottom: 10px;
+}
+
+.car-info img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.quantity, .price {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.price {
+    flex-direction: column;
+}
+
+.quantity svg, .price svg {
+    font-size: 24px;
+    background-color: #0c3eb8;
+    color: #f0f7ff;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.quantity p, .price p {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.add-inventory {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #0c3eb8;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.add-inventory input[type="text"] {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+}
+
+.add-inventory input[type="submit"] {
+    background-color: #f0f7ff;
+    color: #0c3eb8;
+}
+
+.add-inventory input[type="submit"]:hover {
+    background-color: #fff;
+    color: #0c3eb8;
+}
+
+.remove-inventory button {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.manage-all button {
+    width: 100%;
+    background-color: #0c3eb8;
+}
+
+.manage-all button:hover {
+    background-color: #0C3A96;
+}
+
+.car-details h3 {
+    margin-bottom: 10px;
+}
+
+.car-details p {
+    line-height: 26px;
 }
