@@ -3,25 +3,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 
 const Login = () => {
-    const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
+    const location = useLocation();
+    const { register, handleSubmit } = useForm();
 
     // Auth for login with email and password
     const [signInWithEmailAndPassword, user] =
         useSignInWithEmailAndPassword(auth);
 
     // login with email and pass
-    const onSubmit = ({email, password}) => {
+    const onSubmit = ({ email, password }) => {
         signInWithEmailAndPassword(email, password);
     };
 
+    // redirect user to the requested page
+    const from = location.state?.from?.pathname || '/';
+
     useEffect(() => {
         if (user) {
-            navigate('/');
+            navigate(from, { replace: true });
         }
     }, [user]);
 
