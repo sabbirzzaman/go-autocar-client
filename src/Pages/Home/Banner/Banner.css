@@ -1,0 +1,16 @@
+.banner-container .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 50px;
+    padding: 40px 0;
+}
+
+.banner-content p {
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.banner-img img {
+    width: 100%;
+}

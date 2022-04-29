@@ -1,0 +1,56 @@
+[
+    {
+      "_id": "626ba9648608032ac1ffe009",
+      "name": "Mazda MAZDA6",
+      "image": "https://i.ibb.co/6HTTCqW/car1.jpg",
+      "price": "$3,797",
+      "age": 15,
+      "supplier": "Mazda",
+      "description": "Nisi cupidatat aute sint nisi nulla nisi aute nulla ipsum esse nostrud id id. Ea enim velit qui cillum veniam exercitation ullamco in amet velit tempor consectetur cupidatat irure."
+    },
+    {
+      "_id": "626ba964504a4bf1f2f87fb6",
+      "name": "Audi A4",
+      "image": "https://i.ibb.co/QcjwVhj/car2.jpg",
+      "price": "$1,503",
+      "age": 8,
+      "supplier": "Audi",
+      "description": "Nisi cupidatat aute sint nisi nulla nisi aute nulla ipsum esse nostrud id id. Ea enim velit qui cillum veniam exercitation ullamco in amet velit tempor consectetur cupidatat irure."
+    },
+    {
+      "_id": "626ba9640e5598cd784a731c",
+      "name": "Audi A6",
+      "image": "https://i.ibb.co/K58hQRW/car3.jpg",
+      "price": "$3,166",
+      "age": 14,
+      "supplier": "Audi",
+      "description": "Nisi cupidatat aute sint nisi nulla nisi aute nulla ipsum esse nostrud id id. Ea enim velit qui cillum veniam exercitation ullamco in amet velit tempor consectetur cupidatat irure."
+    },
+    {
+      "_id": "626ba96429d2651649f401d9",
+      "name": "Honda CR-V",
+      "image": "https://i.ibb.co/ygmhXSS/car4.jpg",
+      "price": "$3,135",
+      "age": 7,
+      "supplier": "Honda",
+      "description": "Nisi cupidatat aute sint nisi nulla nisi aute nulla ipsum esse nostrud id id. Ea enim velit qui cillum veniam exercitation ullamco in amet velit tempor consectetur cupidatat irure."
+    },
+    {
+      "_id": "626ba964b675fa1a1f5ad432",
+      "name": "Volvo S80",
+      "image": "https://i.ibb.co/41kN7br/car5.jpg",
+      "price": "$3,567",
+      "age": 10,
+      "supplier": "Volvo",
+      "description": "Nisi cupidatat aute sint nisi nulla nisi aute nulla ipsum esse nostrud id id. Ea enim velit qui cillum veniam exercitation ullamco in amet velit tempor consectetur cupidatat irure."
+    },
+    {
+      "_id": "626ba964c15ceebfe0beb5d9",
+      "name": "BMW M4",
+      "image": "https://i.ibb.co/cQKW3G2/car6.jpg",
+      "price": "$3,491",
+      "age": 4,
+      "supplier": "BMW",
+      "description": "Nisi cupidatat aute sint nisi nulla nisi aute nulla ipsum esse nostrud id id. Ea enim velit qui cillum veniam exercitation ullamco in amet velit tempor consectetur cupidatat irure."
+    }
+  ]
