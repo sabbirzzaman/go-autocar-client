@@ -2,6 +2,7 @@ import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import './Register.css';
 
 const Register = () => {
@@ -59,6 +60,12 @@ const Register = () => {
 
                     <input type="submit" value="Register" />
                 </form>
+                <div className="user-help">
+                    <p>
+                        Already have an account?{' '}
+                        <Link to="/login">Login</Link>
+                    </p>
+                </div>
                 <div className="divider">OR</div>
                 <div className="social-login">
                     <button className="google-btn">

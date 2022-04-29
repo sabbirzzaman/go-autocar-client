@@ -6,6 +6,7 @@ import CarDetails from './Pages/CarDetails/CarDetails/CarDetails';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import './App.css';
+import ForgetPassword from './Pages/Login/ForgetPassword/ForgetPassword';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="inventory/:carId" element={<CarDetails />}></Route>
                 <Route path="login" element={<Login />}></Route>
                 <Route path="register" element={<Register />}></Route>
+                <Route path='forget-password' element={<ForgetPassword />}></Route>
             </Routes>
             <Footer></Footer>
         </>
