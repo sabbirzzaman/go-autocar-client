@@ -1,12 +1,29 @@
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const navigate = useNavigate();
+
+    // Auth for login with email and password
+    const [signInWithEmailAndPassword, user] =
+        useSignInWithEmailAndPassword(auth);
+
+    // login with email and pass
+    const onSubmit = ({email, password}) => {
+        signInWithEmailAndPassword(email, password);
+    };
+
+    useEffect(() => {
+        if (user) {
+            navigate('/');
+        }
+    }, [user]);
 
     return (
         <div className="form-container">
@@ -45,7 +62,8 @@ const Login = () => {
 
                 <div className="user-help">
                     <p>
-                        Don't have an account? <Link to="/register">Register</Link>
+                        Don't have an account?{' '}
+                        <Link to="/register">Register</Link>
                     </p>
                 </div>
 

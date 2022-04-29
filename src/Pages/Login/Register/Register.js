@@ -13,8 +13,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     // Auth for create account with email and password
-    const [createUserWithEmailAndPassword, user, loading,
-        error,] =
+    const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth);
 
     // auth for updating name
@@ -24,7 +23,7 @@ const Register = () => {
     const onSubmit = async ({ name, email, password, confirmPass }) => {
         const displayName = name;
 
-        console.log(email, password)
+        console.log(email, password);
 
         if (password !== confirmPass) {
             return console.log('password not matched');
@@ -35,12 +34,12 @@ const Register = () => {
     };
 
     useEffect(() => {
-        if(user) {
-            navigate('/')
+        if (user) {
+            navigate('/');
         }
-    }, [user])
+    }, [user]);
 
-    console.log(user)
+    console.log(user);
 
     return (
         <div className="form-container">
