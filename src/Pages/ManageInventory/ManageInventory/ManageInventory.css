@@ -1,3 +1,62 @@
 .manage-inventory .container {
     padding: 80px 0;
 }
+
+.manage-invt-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.manage-invt-title h2 {
+    font-size: 36px;
+    margin-bottom: 0;
+}
+
+.add-new-item button {
+    background-color: #f0f7ff;
+    color: #2c425d;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-new-item button:hover {
+    background-color: #2c425d;
+    color: #f0f7ff;
+}
+
+table {
+    width: 100%;
+    padding: 15px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 4px;
+    border-spacing: 0;
+}
+
+thead {
+    text-align: left;
+    background: #f0f7ff;
+}
+
+thead th:first-child,
+thead th:last-child {
+    border-radius: 4px;
+}
+
+thead th:first-child,
+thead th:last-child,
+tbody td:first-child,
+tbody td:last-child {
+    padding: 10px 15px;
+}
+
+thead th:last-child,
+tbody td:last-child {
+    text-align: center;
+}
+
+td {
+    border-bottom: 2px solid #f0f7ff;
+}
