@@ -2,12 +2,13 @@ import { faCar, faSackDollar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useCars from '../../../hooks/useCars';
 import './CarDetails.css';
 
 const CarDetails = () => {
     const { carId } = useParams();
+    const navigate = useNavigate();
 
     // store car quantity
     const [carQuantity, setCarQuantity] = useState(0);
@@ -32,17 +33,34 @@ const CarDetails = () => {
                 headers: {
                     'content-type': 'application/json',
                 },
-                body: JSON.stringify({quantity: updatedCars}),
+                body: JSON.stringify({ quantity: updatedCars }),
             })
                 .then((res) => res.json())
                 .then((data) => console.log(data));
         }
-
     };
 
     // React form hook
-    const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const { register, handleSubmit, reset } = useForm();
+
+    // handle add cars to inventory
+    const onSubmit = (data) => {
+        const updatedCars =
+            parseInt(data.addToInventory) + parseInt(carQuantity);
+        setCarQuantity(updatedCars);
+
+        fetch(`http://localhost:5000/car/${carId}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ quantity: updatedCars }),
+        })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+
+        reset();
+    };
 
     return (
         <div className="car-details-container">
@@ -76,16 +94,16 @@ const CarDetails = () => {
                                 {...register('addToInventory')}
                                 required
                             />
-                            <input type="submit" value="Add Cars" />
+                            <input type="submit" value="Add To Stock" />
                         </form>
                         <div className="remove-inventory">
                             <button onClick={handleCarDeliver}>
-                                Deliver a car
+                                Deliver A Car
                             </button>
                         </div>
 
                         <div className="manage-all">
-                            <button>Manage All Inventory</button>
+                            <button onClick={() => navigate('/mange-inventory')}>Manage All Inventories</button>
                         </div>
                     </div>
                 </div>
