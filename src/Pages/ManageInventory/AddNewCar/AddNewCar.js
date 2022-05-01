@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import toast from 'react-hot-toast'
 import './AddNewCar.css';
 
 const AddNewCar = () => {
@@ -24,7 +25,7 @@ const AddNewCar = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                toast.success("Car removed successfully!")
                 reset();
             });
     };

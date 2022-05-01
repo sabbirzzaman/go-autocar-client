@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import useCars from '../../../hooks/useCars';
+import toast from 'react-hot-toast';
 import './CarDetails.css';
 
 const CarDetails = () => {
@@ -18,7 +19,9 @@ const CarDetails = () => {
         `http://localhost:5000/car/${carId}`
     );
 
-    const priceWithComma = price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const priceWithComma = price
+        ?.toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
     useEffect(() => {
         setCarQuantity(quantity);
@@ -38,7 +41,9 @@ const CarDetails = () => {
                 body: JSON.stringify({ quantity: updatedCars }),
             })
                 .then((res) => res.json())
-                .then((data) => console.log(data));
+                .then((data) =>
+                    toast.success('One car removed form inventory!')
+                );
         }
     };
 
@@ -59,8 +64,7 @@ const CarDetails = () => {
             body: JSON.stringify({ quantity: updatedCars }),
         })
             .then((res) => res.json())
-            .then((data) => console.log(data));
-
+            .then((result) => toast.success(`Cars added to inventory!`));
         reset();
     };
 

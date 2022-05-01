@@ -14,8 +14,9 @@ const Register = () => {
 
     // Auth for create account with email and password
     const [createUserWithEmailAndPassword, user, , error] =
-        useCreateUserWithEmailAndPassword(auth);
-
+        useCreateUserWithEmailAndPassword(auth, {
+            sendEmailVerification: true,
+        });
     // auth for updating name
     const [updateProfile] = useUpdateProfile(auth);
 
@@ -45,6 +46,7 @@ const Register = () => {
     useEffect(() => {
         if (user) {
             navigate('/');
+            toast.success(`Verification email send to your email!`);
         }
     }, [user]);
 

@@ -35,6 +35,7 @@ const Login = () => {
     useEffect(() => {
         if (user) {
             navigate(from, { replace: true });
+            toast.success(`Welcome! ${user.user.displayName}`)
         }
     }, [user]);
 
