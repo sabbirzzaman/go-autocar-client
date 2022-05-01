@@ -7,6 +7,7 @@ import auth from '../../../firebase.init';
 import useCars from '../../../hooks/useCars';
 import CarItem from '../CarItem/CarItem';
 import { confirmAlert } from 'react-confirm-alert';
+import toast from 'react-hot-toast';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import './MyCars.css';
 
@@ -33,11 +34,11 @@ const MyCars = () => {
                         })
                             .then((res) => res.json())
                             .then((data) => {
-                                console.log(data);
                                 const remainingCars = cars.filter(
                                     (car) => car._id !== id
                                 );
                                 setCars(remainingCars);
+                                toast.success("Car deleted successfully!");
                             });
                     },
                 },

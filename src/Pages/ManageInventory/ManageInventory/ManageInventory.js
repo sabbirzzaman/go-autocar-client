@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import useCars from '../../../hooks/useCars';
 import ManageInventoryItem from '../ManageInventoryItem/ManageInventoryItem';
 import { confirmAlert } from 'react-confirm-alert';
+import toast from 'react-hot-toast';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import './ManageInventory.css';
 
@@ -28,11 +29,11 @@ const ManageInventory = () => {
                         })
                             .then((res) => res.json())
                             .then((data) => {
-                                console.log(data);
                                 const remainingCars = cars.filter(
                                     (car) => car._id !== id
                                 );
                                 setCars(remainingCars);
+                                toast.success('Car deleted successfully!');
                             });
                     },
                 },

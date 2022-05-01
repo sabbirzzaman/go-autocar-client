@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import Footer from './Pages/Common/Footer/Footer';
 import Header from './Pages/Common/Header/Header';
 import Home from './Pages/Home/Home/Home';
@@ -10,13 +11,13 @@ import RequiredAuth from './Pages/Login/RequiredAuth/RequiredAuth';
 import ManageInventory from './Pages/ManageInventory/ManageInventory/ManageInventory';
 import AddNewCar from './Pages/ManageInventory/AddNewCar/AddNewCar';
 import MyCars from './Pages/MyCars/MyCars/MyCars';
-import './App.css';
 import NotFounded from './Pages/Common/NotFounded/NotFounded';
+import './App.css';
 
 function App() {
     return (
         <>
-            <Header></Header>
+            <Header />
             <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="home" element={<Home />}></Route>
@@ -60,7 +61,8 @@ function App() {
                 ></Route>
                 <Route path="*" element={<NotFounded />}></Route>
             </Routes>
-            <Footer></Footer>
+            <Footer />
+            <Toaster position="top-right" reverseOrder={false} />
         </>
     );
 }

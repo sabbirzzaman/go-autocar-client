@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -22,8 +23,12 @@ const Login = () => {
     // redirect user to the requested page
     const from = location.state?.from?.pathname || '/';
 
-    if(error) {
-        console.log(error)
+    if (error?.message === 'Firebase: Error (auth/user-not-found).') {
+        toast.error('Account does not exist');
+    }
+
+    if (error?.message === 'Firebase: Error (auth/wrong-password).') {
+        toast.error('Entered an invalid password');
     }
 
     useEffect(() => {
