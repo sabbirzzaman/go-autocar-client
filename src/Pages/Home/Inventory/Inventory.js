@@ -27,7 +27,7 @@ const Inventory = () => {
                     ))}
                 </div>
                 <div className="all-inventory">
-                    <button onClick={() => {navigate('/mange-inventory')}}>Manage All Inventories <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></button>
+                    <button onClick={() => {navigate('/manage-inventory')}}>Manage All Inventories <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></button>
                 </div>
             </div>
         </div>

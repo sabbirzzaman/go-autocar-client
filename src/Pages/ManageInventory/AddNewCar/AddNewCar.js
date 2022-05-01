@@ -1,6 +1,9 @@
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import './AddNewCar.css';
 
@@ -86,6 +89,12 @@ const AddNewCar = () => {
                     </div>
                     <input type="submit" value="Add A New Car" />
                 </form>
+                <div className="go-back">
+                    <Link to="/manage-inventory">
+                        Go Back To Manage Inventory{' '}
+                        <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>{' '}
+                    </Link>
+                </div>
             </div>
         </div>
     );

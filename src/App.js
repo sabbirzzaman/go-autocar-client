@@ -33,7 +33,7 @@ function App() {
                     element={<ForgetPassword />}
                 ></Route>
                 <Route
-                    path="mange-inventory"
+                    path="manage-inventory"
                     element={
                         <RequiredAuth>
                             <ManageInventory />

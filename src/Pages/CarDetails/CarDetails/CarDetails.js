@@ -106,7 +106,7 @@ const CarDetails = () => {
                         </div>
 
                         <div className="manage-all">
-                            <button onClick={() => navigate('/mange-inventory')}>Manage All Inventories</button>
+                            <button onClick={() => navigate('/manage-inventory')}>Manage All Inventories</button>
                         </div>
                     </div>
                 </div>

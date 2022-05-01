@@ -11,3 +11,19 @@
     display: flex;
     gap: 10px;
 }
+
+.go-back {
+    margin-top: 20px;
+}
+
+.go-back a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    transition: .3s ease-in-out;
+}
+
+.go-back a:hover {
+    color: #0c3eb8;
+}

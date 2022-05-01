@@ -8,9 +8,22 @@ import './ManageInventory.css';
 
 const ManageInventory = () => {
     // get inventory data using custom hook
-    const [cars] = useCars('http://localhost:5000/cars');
+    const [cars, setCars] = useCars('http://localhost:5000/cars');
 
     const navigate = useNavigate();
+
+    // delete an car form database
+    const handleDeleteCar = (id) => {
+        fetch(`http://localhost:5000/car/${id}`, {
+            method: 'DELETE',
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                const remainingCars = cars.filter((car) => car._id !== id);
+                setCars(remainingCars);
+            });
+    };
 
     return (
         <div className="manage-inventory">
@@ -18,8 +31,17 @@ const ManageInventory = () => {
                 <div className="manage-invt-title">
                     <h2>Manage All Inventories</h2>
                     <div className="add-new-item">
-                    <button onClick={() => {navigate('/add-new-car')}}>Add New Item <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></button>
-                </div>
+                        <button
+                            onClick={() => {
+                                navigate('/add-new-car');
+                            }}
+                        >
+                            Add New Item{' '}
+                            <FontAwesomeIcon
+                                icon={faArrowRight}
+                            ></FontAwesomeIcon>
+                        </button>
+                    </div>
                 </div>
 
                 <table>
@@ -38,6 +60,7 @@ const ManageInventory = () => {
                             <ManageInventoryItem
                                 key={car._id}
                                 car={car}
+                                deleteCar={handleDeleteCar}
                             ></ManageInventoryItem>
                         ))}
                     </tbody>
