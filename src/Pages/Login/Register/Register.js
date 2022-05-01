@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import toast from 'react-hot-toast';
 import './Register.css';
 
 const Register = () => {
@@ -12,7 +13,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     // Auth for create account with email and password
-    const [createUserWithEmailAndPassword, user, loading, error] =
+    const [createUserWithEmailAndPassword, user, , error] =
         useCreateUserWithEmailAndPassword(auth);
 
     // auth for updating name
@@ -22,16 +23,23 @@ const Register = () => {
     const onSubmit = async ({ name, email, password, confirmPass }) => {
         const displayName = name;
 
+        if (password.length <= 5) {
+            toast.error('Password must be at least 6 characters!');
+            return;
+        }
+
         if (password !== confirmPass) {
-            return console.log('password not matched');
+            return toast.error('Passwords do not matched');
         }
 
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName });
     };
 
-    if(error) {
-        console.log(error)
+    if (error) {
+        if (error?.message === 'Firebase: Error (auth/email-already-in-use).') {
+            toast.error('User account already exists!');
+        }
     }
 
     useEffect(() => {

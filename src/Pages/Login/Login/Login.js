@@ -9,7 +9,7 @@ import toast from 'react-hot-toast';
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     // Auth for login with email and password
     const [signInWithEmailAndPassword, user, , error] =
@@ -18,6 +18,7 @@ const Login = () => {
     // login with email and pass
     const onSubmit = ({ email, password }) => {
         signInWithEmailAndPassword(email, password);
+        reset()
     };
 
     // redirect user to the requested page
