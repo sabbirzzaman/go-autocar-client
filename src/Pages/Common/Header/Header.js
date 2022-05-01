@@ -38,8 +38,14 @@ const Header = () => {
 
                 <div className="navigation">
                     <CustomLink to="/home">Home</CustomLink>
-                    <CustomLink to="/about">About</CustomLink>
-                    <CustomLink to="/inventory">Inventory</CustomLink>
+
+                    {user && (
+                        <>
+                            <CustomLink to="/manage-inventory">Manage Cars</CustomLink>
+                            <CustomLink to="/add-new-car">Add Car</CustomLink>
+                            <CustomLink to="/my-cars">My Cars</CustomLink>
+                        </>
+                    )}
 
                     {loading ? (
                         ''

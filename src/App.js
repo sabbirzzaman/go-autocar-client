@@ -5,11 +5,12 @@ import Home from './Pages/Home/Home/Home';
 import CarDetails from './Pages/CarDetails/CarDetails/CarDetails';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
-import './App.css';
 import ForgetPassword from './Pages/Login/ForgetPassword/ForgetPassword';
 import RequiredAuth from './Pages/Login/RequiredAuth/RequiredAuth';
 import ManageInventory from './Pages/ManageInventory/ManageInventory/ManageInventory';
 import AddNewCar from './Pages/ManageInventory/AddNewCar/AddNewCar';
+import MyCars from './Pages/MyCars/MyCars/MyCars';
+import './App.css';
 
 function App() {
     return (
@@ -48,6 +49,7 @@ function App() {
                         </RequiredAuth>
                     }
                 ></Route>
+                <Route path='my-cars' element={<MyCars></MyCars>}></Route>
             </Routes>
             <Footer></Footer>
         </>

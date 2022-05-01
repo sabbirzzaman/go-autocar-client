@@ -33,7 +33,7 @@ const AddNewCar = () => {
         <div className="form-container">
             <div className="container">
                 <div className="form-title">
-                    <h2>Add New Item</h2>
+                    <h2>Add New Car</h2>
                 </div>
 
                 <form className="form" onSubmit={handleSubmit(onSubmit)}>
