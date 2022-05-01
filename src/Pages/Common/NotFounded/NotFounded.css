@@ -1,0 +1,9 @@
+.not-founded-container .container {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.not-founded-container h3 {
+    margin-top: 20px;
+    font-size: 28px;
+}

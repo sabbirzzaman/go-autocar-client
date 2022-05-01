@@ -11,6 +11,7 @@ import ManageInventory from './Pages/ManageInventory/ManageInventory/ManageInven
 import AddNewCar from './Pages/ManageInventory/AddNewCar/AddNewCar';
 import MyCars from './Pages/MyCars/MyCars/MyCars';
 import './App.css';
+import NotFounded from './Pages/Common/NotFounded/NotFounded';
 
 function App() {
     return (
@@ -57,6 +58,7 @@ function App() {
                         </RequiredAuth>
                     }
                 ></Route>
+                <Route path="*" element={<NotFounded />}></Route>
             </Routes>
             <Footer></Footer>
         </>

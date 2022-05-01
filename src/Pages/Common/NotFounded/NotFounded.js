@@ -1,10 +1,14 @@
 import React from 'react';
-import './NotFounded.css'
+import notFounded from '../../../images/404.png';
+import './NotFounded.css';
 
 const NotFounded = () => {
     return (
-        <div>
-            
+        <div className="not-founded-container">
+            <div className="container">
+                <img src={notFounded} alt="Page not founded" />
+                <h3>Opps! Page Not Founded</h3>
+            </div>
         </div>
     );
 };
