@@ -1,0 +1,13 @@
+.field-group textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #f0f7ff;
+    background-color: #f9fcffb0;
+    border-radius: 4px;
+    resize: none;
+}
+
+.field-group.two-column {
+    display: flex;
+    gap: 10px;
+}

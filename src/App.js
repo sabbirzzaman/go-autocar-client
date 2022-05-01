@@ -9,6 +9,7 @@ import './App.css';
 import ForgetPassword from './Pages/Login/ForgetPassword/ForgetPassword';
 import RequiredAuth from './Pages/Login/RequiredAuth/RequiredAuth';
 import ManageInventory from './Pages/ManageInventory/ManageInventory/ManageInventory';
+import AddNewCar from './Pages/ManageInventory/AddNewCar/AddNewCar';
 
 function App() {
     return (
@@ -27,12 +28,23 @@ function App() {
                 ></Route>
                 <Route path="login" element={<Login />}></Route>
                 <Route path="register" element={<Register />}></Route>
-                <Route path="forget-password" element={<ForgetPassword />}></Route>
+                <Route
+                    path="forget-password"
+                    element={<ForgetPassword />}
+                ></Route>
                 <Route
                     path="mange-inventory"
                     element={
                         <RequiredAuth>
                             <ManageInventory />
+                        </RequiredAuth>
+                    }
+                ></Route>
+                <Route
+                    path="add-new-car"
+                    element={
+                        <RequiredAuth>
+                            <AddNewCar />
                         </RequiredAuth>
                     }
                 ></Route>
