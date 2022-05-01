@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 import './CarItem.css';
 
-const CarItem = ({ car }) => {
+const CarItem = ({ car, deleteCar }) => {
     const { _id, name, image, price, quantity, supplier, description } = car;
 
     // Comma added for price
@@ -23,7 +23,7 @@ const CarItem = ({ car }) => {
                 <p>{supplier}</p>
                 <div className="manage-car">
                     <FontAwesomeIcon icon={faPenNib}></FontAwesomeIcon>
-                    <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+                    <FontAwesomeIcon onClick={() => deleteCar(_id)} icon={faTrash}></FontAwesomeIcon>
                 </div>
                 <img src={image} alt={name} />
             </div>

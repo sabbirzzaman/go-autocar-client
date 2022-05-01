@@ -4,6 +4,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useCars from '../../../hooks/useCars';
 import ManageInventoryItem from '../ManageInventoryItem/ManageInventoryItem';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import './ManageInventory.css';
 
 const ManageInventory = () => {
@@ -14,15 +16,32 @@ const ManageInventory = () => {
 
     // delete an car form database
     const handleDeleteCar = (id) => {
-        fetch(`http://localhost:5000/car/${id}`, {
-            method: 'DELETE',
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                const remainingCars = cars.filter((car) => car._id !== id);
-                setCars(remainingCars);
-            });
+        confirmAlert({
+            title: 'Confirm to delete',
+            message: 'Are you sure you want to delete this car?.',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+                        fetch(`http://localhost:5000/car/${id}`, {
+                            method: 'DELETE',
+                        })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                console.log(data);
+                                const remainingCars = cars.filter(
+                                    (car) => car._id !== id
+                                );
+                                setCars(remainingCars);
+                            });
+                    },
+                },
+                {
+                    label: 'No',
+                    onClick: () => '',
+                },
+            ],
+        });
     };
 
     return (

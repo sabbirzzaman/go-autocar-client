@@ -49,7 +49,14 @@ function App() {
                         </RequiredAuth>
                     }
                 ></Route>
-                <Route path='my-cars' element={<MyCars></MyCars>}></Route>
+                <Route
+                    path="my-cars"
+                    element={
+                        <RequiredAuth>
+                            <MyCars />
+                        </RequiredAuth>
+                    }
+                ></Route>
             </Routes>
             <Footer></Footer>
         </>

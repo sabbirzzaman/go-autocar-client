@@ -5,3 +5,25 @@
 .car-title {
     margin-bottom: 40px;
 }
+
+.empty h3 {
+    margin-bottom: 20px;
+}
+
+.empty button {
+    background-color: #f0f7ff;
+    color: #2c425d;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.empty button:hover {
+    background-color: #2c425d;
+    color: #f0f7ff;
+}
+
+.react-confirm-alert-body h1 {
+    font-size: 24px;
+    line-height: 30px;
+}
