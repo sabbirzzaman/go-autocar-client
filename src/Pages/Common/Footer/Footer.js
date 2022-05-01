@@ -15,10 +15,10 @@ const Footer = () => {
                     <div className="footer-column">
                         <h3>Short About Us</h3>
                         <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Minus autem qui in inventore tenetur
-                            perspiciatis. Delectus, maiores alias earum nam,
-                            laudantium dicta fuga sint
+                            From researching the vehicle you want to test
+                            driving your options, we’re here to help with our
+                            knowledgeable sales staff and an impressive
+                            selection of cars, trucks, and SUVs.!
                         </p>
                     </div>
 
