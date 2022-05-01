@@ -1,11 +1,15 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 import useCars from '../../../hooks/useCars';
 import CarItem from '../CarItem/CarItem';
 import './MyCars.css';
 
 const MyCars = () => {
-    const [cars] = useCars(`http://localhost:5000/cars`);
+    const [user] = useAuthState(auth);
 
+    const [cars] = useCars(`http://localhost:5000/my-cars?email=${user?.email}`, user);
+    
     return (
         <div className="my-cars-container">
             <div className="container">

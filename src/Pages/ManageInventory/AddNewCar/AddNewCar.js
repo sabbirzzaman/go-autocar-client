@@ -55,6 +55,17 @@ const AddNewCar = () => {
                             required
                         />
                     </div>
+                    <div className="field-group">
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Your Email"
+                            value={user.email}
+                            {...register('email')}
+                            required
+                            readOnly
+                        />
+                    </div>
                     <div className="field-group two-column">
                         <input
                             type="number"
