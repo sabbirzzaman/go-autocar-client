@@ -7,6 +7,9 @@ import './InventoryItem.css';
 const InventoryItem = ({ car }) => {
     const { _id, name, image, price, quantity, supplier, description } = car;
 
+    // Comma added for price
+    const priceWithComma = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
     // short description for home page
     const shortDescription = description.slice(0, 130);
 
@@ -22,7 +25,7 @@ const InventoryItem = ({ car }) => {
             <div className="inventory-details">
                 <h3>{name}</h3>
                 <div>
-                    <p>{price}</p>
+                    <p>${priceWithComma}</p>
                     <span><FontAwesomeIcon icon={faCar}></FontAwesomeIcon>{quantity}</span>
                 </div>
                 <p>

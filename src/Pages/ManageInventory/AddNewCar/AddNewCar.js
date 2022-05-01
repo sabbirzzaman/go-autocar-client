@@ -1,20 +1,29 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import './AddNewCar.css';
 
 const AddNewCar = () => {
-    const { register, handleSubmit } = useForm();
-    const navigate = useNavigate();
+    const { register, handleSubmit, reset } = useForm();
 
     // get user information
     const [user] = useAuthState(auth);
 
     // Add a new to car to the inventory
     const onSubmit = (data) => {
-        console.log(data)
+        fetch(`http://localhost:5000/cars?email=${user.email}`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                reset();
+            });
     };
 
     return (
@@ -27,36 +36,25 @@ const AddNewCar = () => {
                 <form className="form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="field-group">
                         <input
-                            type="email"
-                            id="email"
-                            value={user.email}
-                            placeholder="Enter your email"
-                            {...register('email')}
-                            required
-                            readOnly
-                        />
-                    </div>
-                    <div className="field-group">
-                        <input
                             type="text"
-                            id="caeName"
+                            id="name"
                             placeholder="Car name"
-                            {...register('caeName')}
+                            {...register('name')}
                             required
                         />
                     </div>
                     <div className="field-group">
                         <input
                             type="text"
-                            id="imageUrl"
+                            id="image"
                             placeholder="Image URL"
-                            {...register('imageUrl')}
+                            {...register('image')}
                             required
                         />
                     </div>
                     <div className="field-group two-column">
                         <input
-                            type="text"
+                            type="number"
                             id="price"
                             placeholder="Price"
                             {...register('price')}
@@ -73,14 +71,18 @@ const AddNewCar = () => {
                     <div className="field-group">
                         <input
                             type="text"
-                            id="supplierName"
+                            id="supplier"
                             placeholder="Supplier name"
-                            {...register('supplierName')}
+                            {...register('supplier')}
                             required
                         />
                     </div>
                     <div className="field-group">
-                        <textarea placeholder="Additional car details" id="additionalDetails"></textarea>
+                        <textarea
+                            placeholder="Additional car details"
+                            {...register('description')}
+                            id="additionalDetails"
+                        ></textarea>
                     </div>
                     <input type="submit" value="Add A New Car" />
                 </form>

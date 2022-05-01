@@ -18,6 +18,9 @@ const CarDetails = () => {
         `http://localhost:5000/car/${carId}`
     );
 
+    // Comma added for price
+    const priceWithComma = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
     useEffect(() => {
         setCarQuantity(quantity);
     }, [quantity]);
@@ -78,7 +81,7 @@ const CarDetails = () => {
                             <FontAwesomeIcon
                                 icon={faSackDollar}
                             ></FontAwesomeIcon>
-                            <p>{price}</p>
+                            <p>${priceWithComma}</p>
                         </div>
                         <div className="quantity">
                             <FontAwesomeIcon icon={faCar}></FontAwesomeIcon>
