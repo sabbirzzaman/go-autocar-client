@@ -1,10 +1,9 @@
-import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -12,7 +11,7 @@ const Login = () => {
     const { register, handleSubmit } = useForm();
 
     // Auth for login with email and password
-    const [signInWithEmailAndPassword, user] =
+    const [signInWithEmailAndPassword, user, , error] =
         useSignInWithEmailAndPassword(auth);
 
     // login with email and pass
@@ -22,6 +21,10 @@ const Login = () => {
 
     // redirect user to the requested page
     const from = location.state?.from?.pathname || '/';
+
+    if(error) {
+        console.log(error)
+    }
 
     useEffect(() => {
         if (user) {
@@ -72,17 +75,7 @@ const Login = () => {
                 </div>
 
                 <div className="divider">OR</div>
-                <div className="social-login">
-                    <button className="google-btn">
-                        <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>{' '}
-                        <span>Continue With Google</span>
-                    </button>
-
-                    <button className="facebook-btn">
-                        <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>{' '}
-                        <span>Continue With Facebook</span>
-                    </button>
-                </div>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );

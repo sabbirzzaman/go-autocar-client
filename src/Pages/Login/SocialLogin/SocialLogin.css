@@ -1,0 +1,19 @@
+.social-login button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.google-btn {
+    margin-bottom: 10px;
+}
+
+.facebook-btn {
+    background-color: #0c3eb8;
+}
+
+.facebook-btn:hover {
+    background-color: #0C3A96;
+}

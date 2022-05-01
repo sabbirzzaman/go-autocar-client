@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 import './Register.css';
 
 const Register = () => {
@@ -23,8 +22,6 @@ const Register = () => {
     const onSubmit = async ({ name, email, password, confirmPass }) => {
         const displayName = name;
 
-        console.log(email, password);
-
         if (password !== confirmPass) {
             return console.log('password not matched');
         }
@@ -33,13 +30,15 @@ const Register = () => {
         await updateProfile({ displayName });
     };
 
+    if(error) {
+        console.log(error)
+    }
+
     useEffect(() => {
         if (user) {
             navigate('/');
         }
     }, [user]);
-
-    console.log(user);
 
     return (
         <div className="form-container">
@@ -98,16 +97,7 @@ const Register = () => {
                     </p>
                 </div>
                 <div className="divider">OR</div>
-                <div className="social-login">
-                    <button className="google-btn">
-                        <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>{' '}
-                        <span>Continue With Google</span>
-                    </button>
-                    <button className="facebook-btn">
-                        <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>{' '}
-                        <span>Continue With Facebook</span>
-                    </button>
-                </div>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );

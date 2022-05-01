@@ -91,7 +91,7 @@ const AddNewCar = () => {
                 </form>
                 <div className="go-back">
                     <Link to="/manage-inventory">
-                        Go Back To Manage Inventory{' '}
+                        Go To Manage Inventory{' '}
                         <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>{' '}
                     </Link>
                 </div>

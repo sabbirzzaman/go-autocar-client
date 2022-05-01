@@ -7,7 +7,7 @@ const ManageInventoryItem = ({car, deleteCar}) => {
     const { _id, name, price, quantity, supplier } = car;
 
     // Comma added for price
-    const priceWithComma = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    const priceWithComma = price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
     return (
         <>

@@ -18,8 +18,7 @@ const CarDetails = () => {
         `http://localhost:5000/car/${carId}`
     );
 
-    // Comma added for price
-    const priceWithComma = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    const priceWithComma = price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
     useEffect(() => {
         setCarQuantity(quantity);
@@ -106,7 +105,11 @@ const CarDetails = () => {
                         </div>
 
                         <div className="manage-all">
-                            <button onClick={() => navigate('/manage-inventory')}>Manage All Inventories</button>
+                            <button
+                                onClick={() => navigate('/manage-inventory')}
+                            >
+                                Manage All Inventories
+                            </button>
                         </div>
                     </div>
                 </div>

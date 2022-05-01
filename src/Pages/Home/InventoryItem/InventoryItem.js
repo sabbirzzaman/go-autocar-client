@@ -8,7 +8,7 @@ const InventoryItem = ({ car }) => {
     const { _id, name, image, price, quantity, supplier, description } = car;
 
     // Comma added for price
-    const priceWithComma = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    const priceWithComma = price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
     // short description for home page
     const shortDescription = description.slice(0, 130);
