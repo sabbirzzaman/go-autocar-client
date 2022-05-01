@@ -28,9 +28,9 @@ const InventoryItem = ({ car }) => {
                     <p>${priceWithComma}</p>
                     <span><FontAwesomeIcon icon={faCar}></FontAwesomeIcon>{quantity}</span>
                 </div>
-                <p>
+                <span>
                     <small title={description}>{shortDescription}...</small>
-                </p>
+                </span>
             </div>
             <button onClick={() => navigate(`/inventory/${_id}`)}>Manage Stock</button>
         </div>
