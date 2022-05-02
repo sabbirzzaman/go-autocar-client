@@ -47,10 +47,10 @@ thead th:last-child {
     border-radius: 4px;
 }
 
-thead th:first-child,
-thead th:last-child,
-tbody td:first-child,
-tbody td:last-child {
+thead th,
+thead th,
+tbody td,
+tbody td {
     padding: 10px 15px;
 }
 
@@ -93,10 +93,10 @@ td {
         padding: 10px;
     }
 
-    thead th:first-child,
-    thead th:last-child,
-    tbody td:first-child,
-    tbody td:last-child {
+    thead th,
+    thead th,
+    tbody td,
+    tbody td {
         padding: 5px 10px;
     }
 

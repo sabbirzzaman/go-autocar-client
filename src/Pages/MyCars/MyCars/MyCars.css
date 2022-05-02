@@ -27,3 +27,10 @@
     font-size: 24px;
     line-height: 30px;
 }
+
+/* Extra small devices (phones, 688px and down) */
+@media only screen and (max-width: 688px) {
+    .car-title {
+        margin-bottom: 20px;
+    }
+}
