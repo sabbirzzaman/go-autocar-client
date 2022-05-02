@@ -13,6 +13,7 @@ import AddNewCar from './Pages/ManageInventory/AddNewCar/AddNewCar';
 import MyCars from './Pages/MyCars/MyCars/MyCars';
 import NotFounded from './Pages/Common/NotFounded/NotFounded';
 import './App.css';
+import AboutUs from './Pages/AboutUs/AboutUs';
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="home" element={<Home />}></Route>
+                <Route path='about' element={<AboutUs/ >}></Route>
                 <Route
                     path="inventory/:carId"
                     element={
@@ -29,8 +31,6 @@ function App() {
                         </RequiredAuth>
                     }
                 ></Route>
-                <Route path="login" element={<Login />}></Route>
-                <Route path="register" element={<Register />}></Route>
                 <Route
                     path="forget-password"
                     element={<ForgetPassword />}
@@ -59,6 +59,8 @@ function App() {
                         </RequiredAuth>
                     }
                 ></Route>
+                <Route path="login" element={<Login />}></Route>
+                <Route path="register" element={<Register />}></Route>
                 <Route path="*" element={<NotFounded />}></Route>
             </Routes>
             <Footer />

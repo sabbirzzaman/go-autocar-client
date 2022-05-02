@@ -10,7 +10,7 @@ const About = () => {
                     <img src={about} alt="About Go AutoCar" />
                 </div>
                 <div className="about-content">
-                    <h2>Our Mission</h2>
+                    <h2>About Us</h2>
                     <h3>
                         At Go AutoCar, we want to provide you with the best
                         automotive experience possible.

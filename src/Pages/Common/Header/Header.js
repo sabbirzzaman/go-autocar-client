@@ -38,6 +38,7 @@ const Header = () => {
 
                 <div className="navigation">
                     <CustomLink to="/home">Home</CustomLink>
+                    <CustomLink to="/about">About</CustomLink>
 
                     {user && (
                         <>
