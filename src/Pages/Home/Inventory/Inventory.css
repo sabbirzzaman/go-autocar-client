@@ -29,6 +29,7 @@
     background-color: #f0f7ff;
     color: #2c425d;
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
 }
@@ -47,4 +48,20 @@
 
 /* Extra small devices (phones, 688px and down) */
 @media only screen and (max-width: 688px) {
+    .inventory-container .container {
+        padding: 50px 0;
+    }
+
+    .all-inventory button {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .inventory {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .inventory-title {
+        margin-bottom: 20px;
+    }
 }

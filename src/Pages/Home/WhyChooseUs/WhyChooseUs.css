@@ -39,3 +39,27 @@
     color: #0c3eb8;
     margin-bottom: 10px;
 }
+
+/* Medium devices (landscape tablets, 689px and up) */
+@media only screen and (min-width: 689px) and (max-width: 992px) {
+    .services-title {
+        margin-bottom: 30px;
+    }
+}
+
+/* Extra small devices (phones, 688px and down) */
+@media only screen and (max-width: 688px) {
+    .choose-us-container .container {
+        padding-bottom: 40px;
+    }
+    
+    .choose-us-title {
+        margin-bottom: 20px;
+    }
+    
+    .choose-us {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+    }
+    
+}

@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="footer-container">
             <div className="footer-top">
                 <div className="container">
-                    <div className="footer-column">
+                    <div className="footer-column col-1">
                         <h3>Short About Us</h3>
                         <p>
                             From researching the vehicle you want to test
@@ -22,15 +22,17 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    {/* <div className="footer-column">
+                    <div className="footer-column col-2">
                         <h3>Useful Links</h3>
-                        <Link to="/home">Home</Link>
-                        <Link to="/about">About</Link>
-                        <Link to="/blog">Blog</Link>
-                        <Link to="/manage-inventory">Inventory</Link>
-                    </div> */}
+                        <div>
+                            <Link to="/home">Home</Link>
+                            <Link to="/about">About</Link>
+                            <Link to="/blog">Blog</Link>
+                            <Link to="/manage-inventory">Inventory</Link>
+                        </div>
+                    </div>
 
-                    <div className="footer-column">
+                    <div className="footer-column col-3">
                         <h3>Join our growing community</h3>
 
                         <div className="mobile-app">

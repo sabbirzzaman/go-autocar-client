@@ -17,6 +17,10 @@
 
 /* Medium devices (landscape tablets, 689px and up) */
 @media only screen and (min-width: 689px) and (max-width: 992px) {
+    .banner-container .container {
+        gap: 30px;
+    }
+
     .banner-content p {
         font-size: 16px;
         line-height: 28px;
