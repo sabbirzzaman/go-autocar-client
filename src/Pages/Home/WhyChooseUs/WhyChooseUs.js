@@ -31,20 +31,20 @@ const WhyChooseUs = () => {
     return (
         <div className="choose-us-container">
             <div className="container">
-                <div className="services-title">
+                <div className="choose-us-title">
                     <h2>Why Choose Us?</h2>
                 </div>
 
                 <div className="choose-us">
-                    {whyChooseUs.map((service) => (
-                        <div className="choose-us-item">
+                    {whyChooseUs.map((chooseUs) => (
+                        <div key={chooseUs.id} className="choose-us-item">
                             <FontAwesomeIcon
-                                icon={service.icon}
+                                icon={chooseUs.icon}
                             ></FontAwesomeIcon>
 
                             <div>
-                                <h3>{service.name}</h3>
-                                <p>{service.details}</p>
+                                <h3>{chooseUs.name}</h3>
+                                <p>{chooseUs.details}</p>
                             </div>
                         </div>
                     ))}

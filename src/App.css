@@ -94,6 +94,33 @@ input[type='submit']:hover {
     .container {
         max-width: 768px;
     }
+
+    p {
+        font-size: 15px;
+        line-height: 26px;
+    }
+    
+    a {
+        font-size: 15px;
+        line-height: 26px;
+    }
+    
+    h1 {
+        font-size: 40px;
+        line-height: 50px;
+        margin-bottom: 10px;
+    }
+    
+    h2 {
+        font-size: 36px;
+        line-height: 42px;
+        margin-bottom: 10px;
+    }
+    
+    h3 {
+        font-size: 18px;
+        line-height: 30px;
+    }
 }
 
 /* Extra small devices (phones, 688px and down) */
