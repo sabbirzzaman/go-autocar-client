@@ -25,7 +25,7 @@ const AddNewCar = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                toast.success("Car removed successfully!")
+                toast.success("Car added successfully!")
                 reset();
             });
     };

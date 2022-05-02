@@ -67,6 +67,10 @@ td {
     display: none;
 }
 
+.mobile {
+    display: none;
+}
+
 /* Medium devices (landscape tablets, 689px and up) */
 @media only screen and (min-width: 689px) and (max-width: 992px) {
     .manage-inventory .container {

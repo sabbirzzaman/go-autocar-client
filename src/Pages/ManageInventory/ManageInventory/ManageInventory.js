@@ -19,7 +19,7 @@ const ManageInventory = () => {
     const handleDeleteCar = (id) => {
         confirmAlert({
             title: 'Confirm to delete',
-            message: 'Are you sure you want to delete this car?.',
+            message: 'Are you sure you want to delete this car?',
             buttons: [
                 {
                     label: 'Yes',

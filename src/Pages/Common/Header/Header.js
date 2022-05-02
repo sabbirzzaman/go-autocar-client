@@ -33,8 +33,6 @@ const Header = () => {
         );
     }
 
-    console.log(open)
-
     return (
         <div className="header-container">
             <nav className="container">
