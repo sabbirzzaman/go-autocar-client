@@ -7,13 +7,14 @@ import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import toast from 'react-hot-toast';
 import './Register.css';
+import Loading from '../../Common/Loading/Loading';
 
 const Register = () => {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
 
     // Auth for create account with email and password
-    const [createUserWithEmailAndPassword, user, , error] =
+    const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth, {
             sendEmailVerification: true,
         });
@@ -49,6 +50,10 @@ const Register = () => {
             toast.success(`Verification email send to your email!`);
         }
     }, [user]);
+
+    if (loading) {
+        return <Loading></Loading>;
+    }
 
     return (
         <div className="form-container">

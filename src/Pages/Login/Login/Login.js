@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import toast from 'react-hot-toast';
+import Loading from '../../Common/Loading/Loading';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -12,13 +13,13 @@ const Login = () => {
     const { register, handleSubmit, reset } = useForm();
 
     // Auth for login with email and password
-    const [signInWithEmailAndPassword, user, , error] =
+    const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
 
     // login with email and pass
     const onSubmit = ({ email, password }) => {
         signInWithEmailAndPassword(email, password);
-        reset()
+        reset();
     };
 
     // redirect user to the requested page
@@ -35,9 +36,13 @@ const Login = () => {
     useEffect(() => {
         if (user) {
             navigate(from, { replace: true });
-            toast.success(`Welcome! ${user.user.displayName}`)
+            toast.success(`Welcome! ${user.user.displayName}`);
         }
     }, [user]);
+
+    if (loading) {
+        return <Loading></Loading>;
+    }
 
     return (
         <div className="form-container">
