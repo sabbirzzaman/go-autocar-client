@@ -6,7 +6,7 @@
 
 .footer-top .container {
     display: grid;
-    grid-template-columns: 34% 19% 44%;
+    grid-template-columns: 34% 15% 44%;
     gap: 3%;
 }
 
@@ -84,6 +84,12 @@
 
 /* Medium devices (landscape tablets, 689px and up) */
 @media only screen and (min-width: 689px) and (max-width: 992px) {
+    .footer-top .container {
+        display: grid;
+        grid-template-columns: 34% 19% 44%;
+        gap: 3%;
+    }
+
     .mobile-app {
         flex-direction: column;
         width: 70%;
