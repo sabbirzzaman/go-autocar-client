@@ -37,3 +37,14 @@
     background-color: #2c425d;
     color: #f0f7ff;
 }
+
+/* Medium devices (landscape tablets, 689px and up) */
+@media only screen and (min-width: 689px) and (max-width: 992px) {
+    .inventory {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Extra small devices (phones, 688px and down) */
+@media only screen and (max-width: 688px) {
+}

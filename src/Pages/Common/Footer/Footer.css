@@ -6,8 +6,9 @@
 
 .footer-top .container {
     display: grid;
-    grid-template-columns: 34% 19% 44%;
-    gap: 3%;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: 34% 19% 44%; */
+    gap: 80px;
 }
 
 .footer-top p, .footer-top a {

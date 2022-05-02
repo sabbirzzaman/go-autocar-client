@@ -19,7 +19,8 @@
     cursor: pointer;
 }
 
-.navigation, .entry-point {
+.navigation,
+.entry-point {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -28,9 +29,54 @@
 .navigation a {
     color: #444;
     font-weight: 500;
-    transition: .3s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
 .navigation a:hover {
     color: #0c3eb8;
+}
+
+.site-logo {
+    z-index: 10;
+}
+
+.nav-ber {
+    display: none;
+    z-index: 10;
+}
+
+
+/* Medium devices (landscape tablets, phones 992px and down) */
+@media only screen and (max-width: 992px) {
+    .navigation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        flex-direction: column;
+        box-shadow: rgb(149 157 165 / 20%) 0 8px 24px;
+        height: 80vh;
+        gap: 20px;
+        justify-content: center;
+        transform: translateY(-105%);
+        transition: .3s ease-in-out;
+    }
+
+    .nav-mobile {
+        transform: translateY(0%);
+    }
+
+    .nav-ber {
+        display: block;
+    }
+
+    .nav-ber svg {
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .entry-point {
+        flex-direction: column;
+    }
 }

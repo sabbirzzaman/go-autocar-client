@@ -22,13 +22,13 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <div className="footer-column">
+                    {/* <div className="footer-column">
                         <h3>Useful Links</h3>
                         <Link to="/home">Home</Link>
                         <Link to="/about">About</Link>
                         <Link to="/blog">Blog</Link>
                         <Link to="/manage-inventory">Inventory</Link>
-                    </div>
+                    </div> */}
 
                     <div className="footer-column">
                         <h3>Join our growing community</h3>

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import auth from '../../../firebase.init';
 import './Header.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
     const navigate = useNavigate();
+
+    const [open, setOpen] = useState(false);
 
     // auth for user
     const [user, loading] = useAuthState(auth);
@@ -29,6 +33,8 @@ const Header = () => {
         );
     }
 
+    console.log(open)
+
     return (
         <div className="header-container">
             <nav className="container">
@@ -36,14 +42,16 @@ const Header = () => {
                     <h3 onClick={() => navigate('/')}>Go AutoCar</h3>
                 </div>
 
-                <div className="navigation">
+                <div className={!open ? 'navigation' : 'navigation nav-mobile'}>
                     <CustomLink to="/home">Home</CustomLink>
                     <CustomLink to="/about">About</CustomLink>
                     <CustomLink to="/blog">Blog</CustomLink>
 
                     {user && (
                         <>
-                            <CustomLink to="/manage-inventory">Manage Cars</CustomLink>
+                            <CustomLink to="/manage-inventory">
+                                Manage Cars
+                            </CustomLink>
                             <CustomLink to="/add-new-car">Add Car</CustomLink>
                             <CustomLink to="/my-cars">My Cars</CustomLink>
                         </>
@@ -70,6 +78,12 @@ const Header = () => {
                         </div>
                     )}
                 </div>
+
+                {
+                    <div className='nav-ber'>
+                        <FontAwesomeIcon onClick={() => setOpen(!open)} icon={!open? faBars : faX}></FontAwesomeIcon>
+                    </div>
+                }
             </nav>
         </div>
     );
