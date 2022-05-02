@@ -62,3 +62,63 @@ tbody td:last-child {
 td {
     border-bottom: 2px solid #f0f7ff;
 }
+
+.add-new-mobile {
+    display: none;
+}
+
+/* Medium devices (landscape tablets, 689px and up) */
+@media only screen and (min-width: 689px) and (max-width: 992px) {
+    .manage-inventory .container {
+        max-width: 700px;
+    }
+}
+
+/* Extra small devices (phones, 688px and down) */
+@media only screen and (max-width: 688px) {
+    .manage-inventory .container {
+        max-width: 325px;
+    }
+
+    .add-new-item {
+        display: none;
+    }
+
+    .manage-invt-title h2 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+ 
+    table {
+        padding: 10px;
+    }
+
+    thead th:first-child,
+    thead th:last-child,
+    tbody td:first-child,
+    tbody td:last-child {
+        padding: 5px 10px;
+    }
+
+    td,
+    th {
+        font-size: 12px;
+    }
+
+    thead th:nth-child(2),
+    tbody td:nth-child(2) {
+        display: none;
+    }
+
+    .mobile {
+        margin-top: 20px;
+        text-align: right;
+        display: block;
+    }
+
+    .mobile button {
+        width: 100%;
+        justify-content: center;
+        padding: 8px;
+    }
+}

@@ -56,7 +56,7 @@
         background-color: #fff;
         flex-direction: column;
         box-shadow: rgb(149 157 165 / 20%) 0 8px 24px;
-        height: 80vh;
+        height: 70vh;
         gap: 20px;
         justify-content: center;
         transform: translateY(-105%);

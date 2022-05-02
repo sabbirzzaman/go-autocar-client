@@ -85,6 +85,19 @@ const ManageInventory = () => {
                         ))}
                     </tbody>
                 </table>
+
+                <div className="add-new-item mobile">
+                        <button
+                            onClick={() => {
+                                navigate('/add-new-car');
+                            }}
+                        >
+                            Add New Item{' '}
+                            <FontAwesomeIcon
+                                icon={faArrowRight}
+                            ></FontAwesomeIcon>
+                        </button>
+                    </div>
             </div>
         </div>
     );
