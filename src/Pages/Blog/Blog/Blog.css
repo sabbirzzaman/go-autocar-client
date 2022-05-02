@@ -1,0 +1,21 @@
+.blog-container .container {
+    padding: 80px 0;
+    max-width: 900px;
+}
+
+.blog-title {
+    margin-bottom: 40px;
+}
+
+.blog-item {
+    background-color: #fff;
+    border: 1px solid #f0f7ff;
+    box-shadow: 0 6px 20px 0 rgb(0 0 0 / 6%);
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.blog-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
