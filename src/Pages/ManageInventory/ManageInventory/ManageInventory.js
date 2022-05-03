@@ -53,10 +53,10 @@ const ManageInventory = () => {
                     <div className="add-new-item">
                         <button
                             onClick={() => {
-                                navigate('/add-new-car');
+                                navigate('/add-car');
                             }}
                         >
-                            Add New Item{' '}
+                            Add New Car{' '}
                             <FontAwesomeIcon
                                 icon={faArrowRight}
                             ></FontAwesomeIcon>
@@ -89,7 +89,7 @@ const ManageInventory = () => {
                 <div className="add-new-item mobile">
                         <button
                             onClick={() => {
-                                navigate('/add-new-car');
+                                navigate('/add-car');
                             }}
                         >
                             Add New Item{' '}

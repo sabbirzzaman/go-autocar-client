@@ -63,7 +63,7 @@ function App() {
                     }
                 ></Route>
                 <Route
-                    path="add-new-car"
+                    path="add-car"
                     element={
                         <RequiredAuth>
                             <AddNewCar />

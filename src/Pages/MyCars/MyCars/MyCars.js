@@ -39,7 +39,7 @@ const MyCars = () => {
                 ) {
                     signOut(auth);
                     navigate('/login');
-                    toast.error('Login Expired!')
+                    toast.error('Login Expired!');
                 }
             }
         };
@@ -79,8 +79,20 @@ const MyCars = () => {
     return (
         <div className="my-cars-container">
             <div className="container">
-                <div className="car-title">
+            <div className="car-header">
                     <h2>My Added Cars</h2>
+                    <div className="add-new-item">
+                        <button
+                            onClick={() => {
+                                navigate('/add-car');
+                            }}
+                        >
+                            Add New Car{' '}
+                            <FontAwesomeIcon
+                                icon={faArrowRight}
+                            ></FontAwesomeIcon>
+                        </button>
+                    </div>
                 </div>
 
                 {cars.length !== 0 ? (
@@ -98,7 +110,7 @@ const MyCars = () => {
                         <h3>You dont have added any cars yet!</h3>
                         <button
                             onClick={() => {
-                                navigate('/add-new-car');
+                                navigate('/add-car');
                             }}
                         >
                             Add A New Car{' '}

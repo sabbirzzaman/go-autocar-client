@@ -2,8 +2,15 @@
     padding: 80px 0;
 }
 
-.car-title {
+.car-header {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 40px;
+    align-items: center;
+}
+
+.car-header h2 {
+    margin-bottom: 0;
 }
 
 .empty h3 {
