@@ -50,8 +50,8 @@ const Header = () => {
                             <CustomLink to="/manage-inventory">
                                 Manage Cars
                             </CustomLink>
-                            <CustomLink to="/add-new-car">Add Car</CustomLink>
                             <CustomLink to="/my-cars">My Cars</CustomLink>
+                            <CustomLink to="/add-new-car">Add Car</CustomLink>
                         </>
                     )}
 

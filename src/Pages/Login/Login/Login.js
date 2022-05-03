@@ -6,20 +6,28 @@ import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import toast from 'react-hot-toast';
 import Loading from '../../Common/Loading/Loading';
+import axios from 'axios';
 
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit } = useForm();
 
     // Auth for login with email and password
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
 
     // login with email and pass
-    const onSubmit = ({ email, password }) => {
-        signInWithEmailAndPassword(email, password);
-        reset();
+    const onSubmit = async ({ email, password }) => {
+        await signInWithEmailAndPassword(email, password);
+        const { data } = await axios.post('http://localhost:5000/login', {
+            email,
+        });
+
+        localStorage.setItem('accessToken', data.accessToken);
+
+        navigate(from, { replace: true });
+        toast.success(`Welcome! ${user?.user.displayName}`);
     };
 
     // redirect user to the requested page
@@ -33,12 +41,11 @@ const Login = () => {
         toast.error('Entered an invalid password');
     }
 
-    useEffect(() => {
-        if (user) {
-            navigate(from, { replace: true });
-            toast.success(`Welcome! ${user.user.displayName}`);
-        }
-    }, [user]);
+    // useEffect(() => {
+    //     if (user) {
+
+    //     }
+    // }, [user]);
 
     if (loading) {
         return <Loading></Loading>;

@@ -55,18 +55,18 @@ function App() {
                     }
                 ></Route>
                 <Route
-                    path="add-new-car"
-                    element={
-                        <RequiredAuth>
-                            <AddNewCar />
-                        </RequiredAuth>
-                    }
-                ></Route>
-                <Route
                     path="my-cars"
                     element={
                         <RequiredAuth>
                             <MyCars />
+                        </RequiredAuth>
+                    }
+                ></Route>
+                <Route
+                    path="add-new-car"
+                    element={
+                        <RequiredAuth>
+                            <AddNewCar />
                         </RequiredAuth>
                     }
                 ></Route>

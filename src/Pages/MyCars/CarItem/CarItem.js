@@ -1,5 +1,5 @@
 import React from 'react';
-import { faCar, faPenNib, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCar, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 import './CarItem.css';
@@ -22,7 +22,6 @@ const CarItem = ({ car, deleteCar }) => {
             <div className="car-img">
                 <p>{supplier}</p>
                 <div className="manage-car">
-                    <FontAwesomeIcon icon={faPenNib}></FontAwesomeIcon>
                     <FontAwesomeIcon onClick={() => deleteCar(_id)} icon={faTrash}></FontAwesomeIcon>
                 </div>
                 <img src={image} alt={name} />

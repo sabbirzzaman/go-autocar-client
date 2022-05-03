@@ -20,7 +20,7 @@ const MyCars = () => {
         user
     );
 
-    // delete an car form database
+    // delete a car form database
     const handleDeleteCar = (id) => {
         confirmAlert({
             title: 'Confirm to delete',
