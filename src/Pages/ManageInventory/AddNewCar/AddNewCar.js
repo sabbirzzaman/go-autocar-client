@@ -16,7 +16,7 @@ const AddNewCar = () => {
 
     // Add a new to car to the inventory
     const onSubmit = (data) => {
-        fetch(`http://localhost:5000/cars?email=${user.email}`, {
+        fetch(`https://go-autocar.herokuapp.com/cars?email=${user.email}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

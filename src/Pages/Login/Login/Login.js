@@ -24,7 +24,7 @@ const Login = () => {
     // login with email and pass
     const onSubmit = async ({ email, password }) => {
         await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('http://localhost:5000/login', {
+        const { data } = await axios.post('https://go-autocar.herokuapp.com/login', {
             email,
         });
 

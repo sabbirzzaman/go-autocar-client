@@ -14,7 +14,7 @@ Go AutoCar is a car dealer (warehouse/inventory) management website. Users can m
     * React Hook Form
     * React Firebase Hook
     * React Confirmation Alert
-    * 
+    * Sweet Alert React
 
 ### Backend And Database
 * Node.js

@@ -8,7 +8,7 @@ import './Inventory.css';
 
 const Inventory = () => {
     // get inventory data using custom hook
-    const [cars] = useCars('http://localhost:5000/cars');
+    const [cars] = useCars('https://go-autocar.herokuapp.com/cars');
 
     // Set limited item for frontpage
     const recentCars = cars.slice(0, 6);

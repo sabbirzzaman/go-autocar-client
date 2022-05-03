@@ -22,7 +22,7 @@ const MyCars = () => {
         const getCars = async () => {
             try {
                 const { data } = await axios.get(
-                    `http://localhost:5000/my-cars?email=${user?.email}`,
+                    `https://go-autocar.herokuapp.com/my-cars?email=${user?.email}`,
                     {
                         headers: {
                             authorization: `Bearer ${localStorage.getItem(
@@ -55,7 +55,7 @@ const MyCars = () => {
                 {
                     label: 'Yes',
                     onClick: () => {
-                        fetch(`http://localhost:5000/car/${id}`, {
+                        fetch(`https://go-autocar.herokuapp.com/car/${id}`, {
                             method: 'DELETE',
                         })
                             .then((res) => res.json())

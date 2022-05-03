@@ -8,17 +8,19 @@ import {
 import auth from '../../../firebase.init';
 import './SocialLogin.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import Loading from '../../Common/Loading/Loading';
 
 const SocialLogin = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
     // get google auth form react firebase hooks
-    const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    const [signInWithGoogle, googleUser, googleLoading] =
         useSignInWithGoogle(auth);
 
     // get google auth form react firebase hooks
-    const [signInWithFacebook, facebookUser, facebookLoading, facebookError] =
+    const [signInWithFacebook, facebookUser, facebookLoading] =
         useSignInWithFacebook(auth);
 
     // redirect user to the requested page
@@ -27,8 +29,19 @@ const SocialLogin = () => {
     useEffect(() => {
         if (googleUser || facebookUser) {
             navigate(from, { replace: true });
+            toast.success(
+                `Welcome! ${
+                    googleUser?.user.displayName ||
+                    facebookUser?.user.displayName
+                }`
+            );
         }
     }, [googleUser || facebookUser]);
+
+    // login loading
+    if (googleLoading || facebookLoading) {
+        return <Loading></Loading>;
+    }
 
     return (
         <div className="social-login">
@@ -37,7 +50,11 @@ const SocialLogin = () => {
                 <span>Continue With Google</span>
             </button>
 
-            <button onClick={() => signInWithFacebook()} icon={faFacebook} className="facebook-btn">
+            <button
+                onClick={() => signInWithFacebook()}
+                icon={faFacebook}
+                className="facebook-btn"
+            >
                 <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>{' '}
                 <span>Continue With Facebook</span>
             </button>

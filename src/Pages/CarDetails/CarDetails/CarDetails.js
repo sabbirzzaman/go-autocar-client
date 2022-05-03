@@ -16,7 +16,7 @@ const CarDetails = () => {
 
     // get single car data by id using custom hook
     const [{ name, image, price, quantity, supplier, description }] = useCars(
-        `http://localhost:5000/car/${carId}`
+        `https://go-autocar.herokuapp.com/car/${carId}`
     );
 
     const priceWithComma = price
@@ -33,7 +33,7 @@ const CarDetails = () => {
             const updatedCars = carQuantity - 1;
             setCarQuantity(updatedCars);
 
-            fetch(`http://localhost:5000/car/${carId}`, {
+            fetch(`https://go-autocar.herokuapp.com/car/${carId}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -56,7 +56,7 @@ const CarDetails = () => {
             parseInt(data.addToInventory) + parseInt(carQuantity);
         setCarQuantity(updatedCars);
 
-        fetch(`http://localhost:5000/car/${carId}`, {
+        fetch(`https://go-autocar.herokuapp.com/car/${carId}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

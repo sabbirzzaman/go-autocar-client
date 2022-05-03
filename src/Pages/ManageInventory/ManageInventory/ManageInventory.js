@@ -11,7 +11,7 @@ import './ManageInventory.css';
 
 const ManageInventory = () => {
     // get inventory data using custom hook
-    const [cars, setCars] = useCars('http://localhost:5000/cars');
+    const [cars, setCars] = useCars('https://go-autocar.herokuapp.com/cars');
 
     const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ const ManageInventory = () => {
                 {
                     label: 'Yes',
                     onClick: () => {
-                        fetch(`http://localhost:5000/car/${id}`, {
+                        fetch(`https://go-autocar.herokuapp.com/car/${id}`, {
                             method: 'DELETE',
                         })
                             .then((res) => res.json())
