@@ -11,11 +11,15 @@ import axios from 'axios';
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { register, handleSubmit } = useForm();
+
+    // redirect user to the requested page
+    const from = location.state?.from?.pathname || '/';
 
     // Auth for login with email and password
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
+
+    const { register, handleSubmit } = useForm();
 
     // login with email and pass
     const onSubmit = async ({ email, password }) => {
@@ -25,14 +29,17 @@ const Login = () => {
         });
 
         localStorage.setItem('accessToken', data.accessToken);
-
-        navigate(from, { replace: true });
-        toast.success(`Welcome! ${user?.user.displayName}`);
     };
 
-    // redirect user to the requested page
-    const from = location.state?.from?.pathname || '/';
+    // navigate user
+    useEffect(() => {
+        if (user && localStorage.getItem('accessToken')) {
+            navigate(from, { replace: true });
+            toast.success(`Welcome! ${user?.user.displayName}`);
+        }
+    }, [user]);
 
+    // handle firebase authentication error
     if (error?.message === 'Firebase: Error (auth/user-not-found).') {
         toast.error('Account does not exist');
     }
@@ -41,12 +48,7 @@ const Login = () => {
         toast.error('Entered an invalid password');
     }
 
-    // useEffect(() => {
-    //     if (user) {
-
-    //     }
-    // }, [user]);
-
+    // login loading
     if (loading) {
         return <Loading></Loading>;
     }

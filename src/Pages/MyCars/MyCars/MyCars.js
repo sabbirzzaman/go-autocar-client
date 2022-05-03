@@ -1,24 +1,50 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import useCars from '../../../hooks/useCars';
 import CarItem from '../CarItem/CarItem';
 import { confirmAlert } from 'react-confirm-alert';
 import toast from 'react-hot-toast';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import './MyCars.css';
+import axios from 'axios';
+import { signOut } from 'firebase/auth';
 
 const MyCars = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
-    const [cars, setCars] = useCars(
-        `http://localhost:5000/my-cars?email=${user?.email}`,
-        user
-    );
+    const [cars, setCars] = useState([]);
+
+    useEffect(() => {
+        const getCars = async () => {
+            try {
+                const { data } = await axios.get(
+                    `http://localhost:5000/my-cars?email=${user?.email}`,
+                    {
+                        headers: {
+                            authorization: `Bearer ${localStorage.getItem(
+                                'accessToken'
+                            )}`,
+                        },
+                    }
+                );
+                setCars(data);
+            } catch (err) {
+                if (
+                    err.response.status === 401 ||
+                    err.response.status === 403
+                ) {
+                    signOut(auth);
+                    navigate('/login');
+                    toast.error('Login Expired!')
+                }
+            }
+        };
+        getCars();
+    }, [user]);
 
     // delete a car form database
     const handleDeleteCar = (id) => {
@@ -38,7 +64,7 @@ const MyCars = () => {
                                     (car) => car._id !== id
                                 );
                                 setCars(remainingCars);
-                                toast.success("Car deleted successfully!");
+                                toast.success('Car deleted successfully!');
                             });
                     },
                 },
