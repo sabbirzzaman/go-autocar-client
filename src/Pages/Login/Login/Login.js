@@ -22,6 +22,9 @@ const Login = () => {
     // get access token
     const [token] = useToken(user);
 
+    // get user name
+    const name = user?.user.displayName;
+
     const { register, handleSubmit } = useForm();
 
     // login with email and pass
@@ -33,17 +36,19 @@ const Login = () => {
     useEffect(() => {
         if (token) {
             navigate(from, { replace: true });
-            toast.success(`Welcome! ${user?.user.displayName}`);
+
+            name && toast.success(`Welcome! ${name}`);
         }
     }, [token]);
 
-    // handle firebase authentication error
-    if (error?.message === 'Firebase: Error (auth/user-not-found).') {
-        toast.error('Account does not exist');
-    }
+    // // handle firebase authentication error
+    if (error) {
+        error?.code === 'auth/user-not-found' &&
+            toast.error('Account does not exist');
 
-    if (error?.message === 'Firebase: Error (auth/wrong-password).') {
-        toast.error('Entered an invalid password');
+
+        error?.code === 'auth/wrong-password' &&
+            toast.error('Password incorrect.');
     }
 
     // login loading

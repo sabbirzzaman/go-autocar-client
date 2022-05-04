@@ -24,18 +24,17 @@ const SocialLogin = () => {
     // get access token
     const [token] = useToken(googleUser || facebookUser);
 
+    // get user name
+    const name = googleUser?.user.displayName || facebookUser?.user.displayName;
+
     // redirect user to the requested page
     const from = location.state?.from?.pathname || '/';
 
     useEffect(() => {
         if (token) {
             navigate(from, { replace: true });
-            toast.success(
-                `Welcome! ${
-                    googleUser?.user.displayName ||
-                    facebookUser?.user.displayName
-                }`
-            );
+            name && toast.success(`Welcome! ${name}`);
+            console.log(name)
         }
     }, [token]);
 

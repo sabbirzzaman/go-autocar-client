@@ -36,7 +36,7 @@ const Register = () => {
         }
 
         if (password !== confirmPass) {
-            return toast.error('Passwords do not matched');
+            return toast.error(`Passwords don't matched!`);
         }
 
         await createUserWithEmailAndPassword(email, password);
@@ -44,11 +44,11 @@ const Register = () => {
     };
 
     if (error) {
-        if (error?.message === 'Firebase: Error (auth/email-already-in-use).') {
+        error?.code === 'auth/email-already-in-use' &&
             toast.error('User account already exists!');
-        }
     }
-
+    
+    // navigate user
     useEffect(() => {
         if (token) {
             navigate('/');
