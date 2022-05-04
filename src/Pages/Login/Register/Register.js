@@ -8,6 +8,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import toast from 'react-hot-toast';
 import './Register.css';
 import Loading from '../../Common/Loading/Loading';
+import useToken from '../../../hooks/useToken';
 
 const Register = () => {
     const { register, handleSubmit } = useForm();
@@ -18,6 +19,10 @@ const Register = () => {
         useCreateUserWithEmailAndPassword(auth, {
             sendEmailVerification: true,
         });
+
+    // get access token
+    const [token] = useToken(user);
+
     // auth for updating name
     const [updateProfile] = useUpdateProfile(auth);
 
@@ -45,11 +50,11 @@ const Register = () => {
     }
 
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate('/');
             toast.success(`Verification email send to your email!`);
         }
-    }, [user]);
+    }, [token]);
 
     if (loading) {
         return <Loading></Loading>;

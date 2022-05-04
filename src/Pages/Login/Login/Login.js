@@ -6,7 +6,7 @@ import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import toast from 'react-hot-toast';
 import Loading from '../../Common/Loading/Loading';
-import axios from 'axios';
+import useToken from '../../../hooks/useToken';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -19,25 +19,23 @@ const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
 
+    // get access token
+    const [token] = useToken(user);
+
     const { register, handleSubmit } = useForm();
 
     // login with email and pass
-    const onSubmit = async ({ email, password }) => {
-        await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('https://go-autocar.herokuapp.com/login', {
-            email,
-        });
-
-        localStorage.setItem('accessToken', data.accessToken);
+    const onSubmit = ({ email, password }) => {
+        signInWithEmailAndPassword(email, password);
     };
 
     // navigate user
     useEffect(() => {
-        if (user && localStorage.getItem('accessToken')) {
+        if (token) {
             navigate(from, { replace: true });
             toast.success(`Welcome! ${user?.user.displayName}`);
         }
-    }, [user]);
+    }, [token]);
 
     // handle firebase authentication error
     if (error?.message === 'Firebase: Error (auth/user-not-found).') {
@@ -85,7 +83,7 @@ const Login = () => {
                             required
                         />
                     </div>
-                    <input type="submit" value="Register" />
+                    <input type="submit" value="Login" />
                 </form>
 
                 <div className="user-help">

@@ -9,25 +9,26 @@ import auth from '../../../firebase.init';
 import './SocialLogin.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import Loading from '../../Common/Loading/Loading';
+import useToken from '../../../hooks/useToken';
 
 const SocialLogin = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
     // get google auth form react firebase hooks
-    const [signInWithGoogle, googleUser, googleLoading] =
-        useSignInWithGoogle(auth);
+    const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
 
     // get google auth form react firebase hooks
-    const [signInWithFacebook, facebookUser, facebookLoading] =
-        useSignInWithFacebook(auth);
+    const [signInWithFacebook, facebookUser] = useSignInWithFacebook(auth);
+
+    // get access token
+    const [token] = useToken(googleUser || facebookUser);
 
     // redirect user to the requested page
     const from = location.state?.from?.pathname || '/';
 
     useEffect(() => {
-        if (googleUser || facebookUser) {
+        if (token) {
             navigate(from, { replace: true });
             toast.success(
                 `Welcome! ${
@@ -36,12 +37,7 @@ const SocialLogin = () => {
                 }`
             );
         }
-    }, [googleUser || facebookUser]);
-
-    // login loading
-    if (googleLoading || facebookLoading) {
-        return <Loading></Loading>;
-    }
+    }, [token]);
 
     return (
         <div className="social-login">
