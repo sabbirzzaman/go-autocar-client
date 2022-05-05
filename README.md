@@ -1,6 +1,6 @@
 # Go AutoCar
 
-## [Live Link](#)
+## [Live Link](https://go-autocar.web.app/)
 
 ## [Server Side Repo](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-sabbirzzaman)
 
@@ -10,11 +10,13 @@ Go AutoCar is a car dealer (warehouse/inventory) management website. Users can m
 ### Libraries and Frameworks
 * React Js (create-react-app)
     * React Router
+    * Axios
     * Font Awesome
     * React Hook Form
     * React Firebase Hook
     * React Confirmation Alert
-    * Sweet Alert React
+    * React Confirm Alert
+    * React Hot Toast
 
 ### Backend And Database
 * Node.js

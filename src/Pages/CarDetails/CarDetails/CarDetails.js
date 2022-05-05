@@ -6,6 +6,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import useCars from '../../../hooks/useCars';
 import toast from 'react-hot-toast';
 import './CarDetails.css';
+import Loading from '../../Common/Loading/Loading';
+import axios from 'axios';
 
 const CarDetails = () => {
     const { carId } = useParams();
@@ -29,19 +31,17 @@ const CarDetails = () => {
 
     // handle remove car quantity
     const handleCarDeliver = () => {
-        if (carQuantity !== 0) {
-            const updatedCars = carQuantity - 1;
+        if (carQuantity) {
+            const updatedCars = parseInt(carQuantity) - 1;
             setCarQuantity(updatedCars);
 
-            fetch(`https://go-autocar.herokuapp.com/car/${carId}`, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify({ quantity: updatedCars }),
-            })
-                .then((res) => res.json())
-                .then((data) =>
+            const deleteUrl = `https://go-autocar.herokuapp.com/car/${carId}`;
+
+            axios
+                .put(deleteUrl, {
+                    quantity: updatedCars,
+                })
+                .then((res) =>
                     toast.success('One car removed form inventory!')
                 );
         }
@@ -56,17 +56,20 @@ const CarDetails = () => {
             parseInt(data.addToInventory) + parseInt(carQuantity);
         setCarQuantity(updatedCars);
 
-        fetch(`https://go-autocar.herokuapp.com/car/${carId}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify({ quantity: updatedCars }),
-        })
-            .then((res) => res.json())
-            .then((result) => toast.success(`Cars added to inventory!`));
+        const addUrl = `https://go-autocar.herokuapp.com/car/${carId}`;
+
+        axios
+            .put(addUrl, {
+                quantity: updatedCars,
+            })
+            .then((res) => toast.success(`Cars added to inventory!`));
+
         reset();
     };
+
+    if (!name) {
+        return <Loading></Loading>;
+    }
 
     return (
         <div className="car-details-container">

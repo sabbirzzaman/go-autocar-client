@@ -12,7 +12,7 @@ const ForgetPassword = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = async (email) => {
         await sendPasswordResetEmail(email.email);
-        toast.success('Reset email send to your email!');
+        toast.success('Reset link send to your email!');
         reset();
     };
 

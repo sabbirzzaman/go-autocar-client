@@ -1,9 +1,12 @@
 import React from 'react';
 import './Loading.css';
 
-const Loading = () => {
+const Loading = ({ height }) => {
     return (
-        <div className="loading-container">
+        <div
+            style={{ height: height || '100vh' }}
+            className="loading-container"
+        >
             <div className="lds-roller">
                 <div></div>
                 <div></div>

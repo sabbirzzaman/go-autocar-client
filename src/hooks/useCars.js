@@ -1,12 +1,11 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const useCars = (url) => {
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => setCars(data));
+        axios.get(url).then((res) => setCars(res.data));
     }, []);
 
     return [cars, setCars];

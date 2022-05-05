@@ -3,36 +3,48 @@
     padding: 80px 0;
 }
 
-.manage-invt-title {
+.table-bar {
+    background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.manage-invt-title h2 {
-    font-size: 36px;
-    margin-bottom: 0;
-}
-
-.add-new-item button {
+.table-bar select {
     background-color: #f0f7ff;
+    color: #0c3eb8;
+    padding: 5px 10px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+}
+
+.table-bar .add-new-car button {
+    background-color: #f0f7ff;
+    padding: 5px 30px;
     color: #2c425d;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.add-new-item button:hover {
+.table-bar .add-new-car button:hover {
     background-color: #2c425d;
     color: #f0f7ff;
 }
 
-table {
-    width: 100%;
+.table-container {
     padding: 15px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 4px;
+}
+
+table {
+    width: 100%;
     border-spacing: 0;
 }
 
@@ -59,22 +71,36 @@ tbody td:last-child {
     text-align: center;
 }
 
-td {
+tr:not(:last-child) td {
     border-bottom: 2px solid #f0f7ff;
 }
 
-.add-new-mobile {
-    display: none;
+.table-bar .pages {
+    display: flex;
+    gap: 20px;
 }
 
-.mobile {
-    display: none;
+.pagination-btn {
+    background-color: #0c3eb8;
+    padding: 5px 15px;
+}
+
+.pagination-btn:hover {
+    background-color: #2c425d;
+}
+
+.current {
+    background-color: #2c425d;
 }
 
 /* Medium devices (landscape tablets, 689px and up) */
 @media only screen and (min-width: 689px) and (max-width: 992px) {
     .manage-inventory .container {
         max-width: 700px;
+    }
+
+    .table-bar .pages {
+        gap: 10px;
     }
 }
 
@@ -84,17 +110,17 @@ td {
         max-width: 325px;
     }
 
-    .add-new-item {
-        display: none;
+    .table-container {
+        padding: 10px;
     }
 
-    .manage-invt-title h2 {
-        font-size: 24px;
-        line-height: 32px;
+    .table-bar {
+        flex-direction: column;
+        gap: 10px;
     }
- 
-    table {
-        padding: 10px;
+
+    .table-bar .pages {
+        gap: 10px;
     }
 
     thead th,
@@ -112,17 +138,5 @@ td {
     thead th:nth-child(2),
     tbody td:nth-child(2) {
         display: none;
-    }
-
-    .mobile {
-        margin-top: 20px;
-        text-align: right;
-        display: block;
-    }
-
-    .mobile button {
-        width: 100%;
-        justify-content: center;
-        padding: 8px;
     }
 }

@@ -34,7 +34,6 @@ const SocialLogin = () => {
         if (token) {
             navigate(from, { replace: true });
             name && toast.success(`Welcome! ${name}`);
-            console.log(name)
         }
     }, [token]);
 

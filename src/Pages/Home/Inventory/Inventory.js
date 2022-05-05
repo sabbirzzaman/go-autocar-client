@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useCars from '../../../hooks/useCars';
+import Loading from '../../Common/Loading/Loading';
 import InventoryItem from '../InventoryItem/InventoryItem';
 import './Inventory.css';
 
@@ -21,13 +22,29 @@ const Inventory = () => {
                 <div className="inventory-title">
                     <h2>Our Inventory</h2>
                 </div>
-                <div className="inventory">
-                    {recentCars.map((car) => (
-                        <InventoryItem key={car._id} car={car}></InventoryItem>
-                    ))}
-                </div>
+
+                {!cars.length ? (
+                    <Loading height={'60vh'}></Loading>
+                ) : (
+                    <div className="inventory">
+                        {recentCars.map((car) => (
+                            <InventoryItem
+                                key={car._id}
+                                car={car}
+                            ></InventoryItem>
+                        ))}
+                    </div>
+                )}
+
                 <div className="all-inventory">
-                    <button onClick={() => {navigate('/manage-inventory')}}>Manage All Inventories <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon></button>
+                    <button
+                        onClick={() => {
+                            navigate('/manage-inventory');
+                        }}
+                    >
+                        Manage All Inventories{' '}
+                        <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
+                    </button>
                 </div>
             </div>
         </div>

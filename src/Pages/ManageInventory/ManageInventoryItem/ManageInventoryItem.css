@@ -1,9 +1,14 @@
 td svg {
-    background: #ff3366;
+    background-color: #ff3366;
     color: #fff;
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+td svg:hover {
+    background-color: #e82e6c;
 }
 
 /* Medium devices (landscape tablets, 689px and up) */

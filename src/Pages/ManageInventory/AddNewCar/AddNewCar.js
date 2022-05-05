@@ -5,8 +5,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import toast from 'react-hot-toast'
+import toast from 'react-hot-toast';
 import './AddNewCar.css';
+import axios from 'axios';
 
 const AddNewCar = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -15,19 +16,13 @@ const AddNewCar = () => {
     const [user] = useAuthState(auth);
 
     // Add a new to car to the inventory
+    const url = `https://go-autocar.herokuapp.com/cars?email=${user.email}`;
+
     const onSubmit = (data) => {
-        fetch(`https://go-autocar.herokuapp.com/cars?email=${user.email}`, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                toast.success("Car added successfully!")
-                reset();
-            });
+        axios.post(url, data).then((res) => {
+            toast.success('Car added successfully!');
+            reset();
+        });
     };
 
     return (

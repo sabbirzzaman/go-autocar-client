@@ -8,9 +8,9 @@ import CarItem from '../CarItem/CarItem';
 import { confirmAlert } from 'react-confirm-alert';
 import toast from 'react-hot-toast';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import './MyCars.css';
 import axios from 'axios';
 import { signOut } from 'firebase/auth';
+import './MyCars.css';
 
 const MyCars = () => {
     const [user] = useAuthState(auth);
@@ -21,16 +21,15 @@ const MyCars = () => {
     useEffect(() => {
         const getCars = async () => {
             try {
-                const { data } = await axios.get(
-                    `https://go-autocar.herokuapp.com/my-cars?email=${user?.email}`,
-                    {
-                        headers: {
-                            authorization: `Bearer ${localStorage.getItem(
-                                'accessToken'
-                            )}`,
-                        },
-                    }
-                );
+                const url = `https://go-autocar.herokuapp.com/my-cars?email=${user?.email}`;
+
+                const { data } = await axios.get(url, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem(
+                            'accessToken'
+                        )}`,
+                    },
+                });
                 setCars(data);
             } catch (err) {
                 if (
@@ -55,11 +54,11 @@ const MyCars = () => {
                 {
                     label: 'Yes',
                     onClick: () => {
-                        fetch(`https://go-autocar.herokuapp.com/car/${id}`, {
-                            method: 'DELETE',
-                        })
-                            .then((res) => res.json())
-                            .then((data) => {
+                        axios
+                            .delete(
+                                `https://go-autocar.herokuapp.com/car/${id}`
+                            )
+                            .then((res) => {
                                 const remainingCars = cars.filter(
                                     (car) => car._id !== id
                                 );
@@ -79,9 +78,9 @@ const MyCars = () => {
     return (
         <div className="my-cars-container">
             <div className="container">
-            <div className="car-header">
-                    <h2>My Added Cars</h2>
-                    <div className="add-new-item">
+                <div className="car-header">
+                    <h2>My <span>Added</span> Cars</h2>
+                    <div className="add-new-car">
                         <button
                             onClick={() => {
                                 navigate('/add-car');
@@ -95,7 +94,7 @@ const MyCars = () => {
                     </div>
                 </div>
 
-                {cars.length !== 0 ? (
+                {cars.length ? (
                     <div className="inventory">
                         {cars.map((car) => (
                             <CarItem
