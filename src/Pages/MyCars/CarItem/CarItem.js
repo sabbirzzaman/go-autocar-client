@@ -22,7 +22,10 @@ const CarItem = ({ car, deleteCar }) => {
             <div className="car-img">
                 <p>{supplier}</p>
                 <div className="manage-car">
-                    <FontAwesomeIcon onClick={() => deleteCar(_id)} icon={faTrash}></FontAwesomeIcon>
+                    <FontAwesomeIcon
+                        onClick={() => deleteCar(_id)}
+                        icon={faTrash}
+                    ></FontAwesomeIcon>
                 </div>
                 <img src={image} alt={name} />
             </div>
@@ -33,7 +36,7 @@ const CarItem = ({ car, deleteCar }) => {
                     <p>${priceWithComma}</p>
                     <span>
                         <FontAwesomeIcon icon={faCar}></FontAwesomeIcon>
-                        {quantity}
+                        {quantity ? quantity : 'Sold Out'}
                     </span>
                 </div>
                 <p>

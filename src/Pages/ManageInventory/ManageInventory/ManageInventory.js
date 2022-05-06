@@ -75,9 +75,7 @@ const ManageInventory = () => {
 
                     <select defaultValue={'10'} onChange={(e) => setFilter(e.target.value)}>
                         <option value="5">Show 5 Cars</option>
-                        <option value="10">
-                            Show 10 Cars
-                        </option>
+                        <option value="10">Show 10 Cars</option>
                         <option value="15">Show 15 Cars</option>
                         <option value="20">Show 20 Cars</option>
                     </select>

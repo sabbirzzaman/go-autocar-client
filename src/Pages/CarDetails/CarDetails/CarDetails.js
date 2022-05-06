@@ -91,7 +91,7 @@ const CarDetails = () => {
                         </div>
                         <div className="quantity">
                             <FontAwesomeIcon icon={faCar}></FontAwesomeIcon>
-                            <p>{carQuantity}</p>
+                            <p>{carQuantity ? carQuantity : 'Sold Out'}</p>
                         </div>
                         <form
                             className="add-inventory"
