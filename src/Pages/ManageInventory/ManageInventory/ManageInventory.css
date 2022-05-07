@@ -66,11 +66,6 @@ tbody td {
     padding: 10px 15px;
 }
 
-thead th:last-child,
-tbody td:last-child {
-    text-align: center;
-}
-
 tr:not(:last-child) td {
     border-bottom: 2px solid #f0f7ff;
 }
@@ -110,17 +105,28 @@ tr:not(:last-child) td {
         max-width: 325px;
     }
 
-    .table-container {
+    .table-container, .table-bar {
         padding: 10px;
     }
 
     .table-bar {
-        flex-direction: column;
         gap: 10px;
+    }
+
+    .table-bar h3 {
+        line-height: 24px;
+    }
+
+    .table-bar .add-new-car button {
+        padding: 5px 20px;
     }
 
     .table-bar .pages {
         gap: 10px;
+    }
+
+    .pagination-btn {
+        padding: 5px 10px;
     }
 
     thead th,

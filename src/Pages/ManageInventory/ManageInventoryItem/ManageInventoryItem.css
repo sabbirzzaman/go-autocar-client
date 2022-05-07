@@ -1,24 +1,44 @@
 td svg {
-    background-color: #ff3366;
     color: #fff;
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
-    transition: .3s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
-td svg:hover {
+td svg:first-child {
+    background-color: #2ecc71;
+}
+
+td svg:first-child:hover {
+    background-color: #27ae60;
+}
+
+td svg:last-child {
+    background-color: #ff3366;
+}
+
+td svg:last-child:hover {
     background-color: #e82e6c;
+}
+
+.manage {
+    display: flex;
+    gap: 10px;
 }
 
 /* Extra small devices (phones, 688px and down) */
 @media only screen and (max-width: 688px) {
-    
-        .sold span {
-            display: none;
-        }
+    .sold span {
+        display: none;
+    }
+
     td svg {
         padding: 5px;
         font-size: 10px;
+    }
+
+    .manage {
+        gap: 5px;
     }
 }

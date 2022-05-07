@@ -92,7 +92,7 @@ const ManageInventory = () => {
                                     <th>Supplier</th>
                                     <th>Stock</th>
                                     <th>Price</th>
-                                    <th>Clear</th>
+                                    <th>Manage</th>
                                 </tr>
                             </thead>
 
