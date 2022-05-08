@@ -5,7 +5,10 @@ const useCars = (url) => {
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
-        axios.get(url).then((res) => setCars(res.data));
+        axios
+            .get(url)
+            .then((res) => setCars(res.data))
+            .catch((err) => console.log(err));
     }, []);
 
     return [cars, setCars];

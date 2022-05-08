@@ -56,7 +56,10 @@ const ManageInventory = () => {
                                 );
                                 setCars(remainingCars);
                                 toast.success('Car deleted successfully!');
-                            });
+                            })
+                            .catch((err) => {
+                                console.log(err)
+                            })
                     },
                 },
                 {
