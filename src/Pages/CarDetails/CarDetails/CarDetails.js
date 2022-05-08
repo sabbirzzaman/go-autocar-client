@@ -5,9 +5,9 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import useCars from '../../../hooks/useCars';
 import toast from 'react-hot-toast';
-import './CarDetails.css';
 import Loading from '../../Common/Loading/Loading';
 import axios from 'axios';
+import './CarDetails.css';
 
 const CarDetails = () => {
     const { carId } = useParams();
@@ -17,9 +17,8 @@ const CarDetails = () => {
     const [carQuantity, setCarQuantity] = useState(0);
 
     // get single car data by id using custom hook
-    const [{ name, image, price, quantity, supplier, description }] = useCars(
-        `https://go-autocar.herokuapp.com/car/${carId}`
-    );
+    const [{ _id, name, image, price, quantity, supplier, description }] =
+        useCars(`https://go-autocar.herokuapp.com/car/${carId}`);
 
     const priceWithComma = price
         ?.toString()
@@ -121,8 +120,11 @@ const CarDetails = () => {
                     </div>
                 </div>
                 <div className="car-details">
-                    <h3>Additional Details:</h3>
-                    <p>{description}</p>
+                        <h3>Car Id: <span>{_id}</span></h3>
+
+                        <h3>Additional Details:</h3>
+                        <p>{description}</p>
+                    
                 </div>
             </div>
         </div>

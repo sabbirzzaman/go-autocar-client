@@ -98,6 +98,11 @@
     margin-bottom: 10px;
 }
 
+.car-details h3 span {
+    color: #2c425d;
+    font-weight: 500;
+}
+
 .car-details p {
     line-height: 26px;
 }

@@ -23,3 +23,4 @@ Go AutoCar is a car dealer (warehouse/inventory) management website. Users can m
 * Express.js
 * Firebase
 * MongoDb
+* JWT
