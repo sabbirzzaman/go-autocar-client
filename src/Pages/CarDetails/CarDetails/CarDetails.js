@@ -17,7 +17,7 @@ const CarDetails = () => {
     const [carQuantity, setCarQuantity] = useState(0);
 
     // get single car data by id using custom hook
-    const [{ _id, name, image, price, quantity, supplier, description }] =
+    const [{ name, image, price, quantity, supplier, description }] =
         useCars(`https://go-autocar.herokuapp.com/car/${carId}`);
 
     const priceWithComma = price
