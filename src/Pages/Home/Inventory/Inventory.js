@@ -1,20 +1,27 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 import React from 'react';
+import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import useCars from '../../../hooks/useCars';
 import Loading from '../../Common/Loading/Loading';
 import InventoryItem from '../InventoryItem/InventoryItem';
 import './Inventory.css';
 
 const Inventory = () => {
+    const navigate = useNavigate();
+
     // get inventory data using custom hook
-    const [cars] = useCars('https://go-autocar.herokuapp.com/cars');
+    const {data, isLoading} = useQuery('cars', () => axios.get('https://go-autocar.herokuapp.com/cars'))
+
+    if(isLoading) {
+        return <Loading></Loading>
+    }
+
+    const cars = data.data;
 
     // Set limited item for frontpage
     const recentCars = cars.slice(0, 6);
-
-    const navigate = useNavigate();
 
     return (
         <div className="inventory-container">

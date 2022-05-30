@@ -9,7 +9,7 @@ const useCars = (url) => {
             .get(url)
             .then((res) => setCars(res.data))
             .catch((err) => console.log(err));
-    }, []);
+    }, [url]);
 
     return [cars, setCars];
 };
