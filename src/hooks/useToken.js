@@ -6,7 +6,7 @@ const useToken = (user) => {
 
     useEffect(() => {
         const getToken = async () => {
-            const url = `https://go-autocar.herokuapp.com/login`;
+            const url = `https://kind-rose-beaver-tam.cyclic.app/login`;
             const email = user?.user.email;
 
             if (email) {

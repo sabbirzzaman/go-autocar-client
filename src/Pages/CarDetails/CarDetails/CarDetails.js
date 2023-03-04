@@ -18,7 +18,7 @@ const CarDetails = () => {
 
     // get single car data by id using custom hook
     const [{ name, image, price, quantity, supplier, description }] =
-        useCars(`https://go-autocar.herokuapp.com/car/${carId}`);
+        useCars(`https://kind-rose-beaver-tam.cyclic.app/car/${carId}`);
 
     const priceWithComma = price
         ?.toString()
@@ -34,7 +34,7 @@ const CarDetails = () => {
             const updatedCars = parseInt(carQuantity) - 1;
             setCarQuantity(updatedCars);
 
-            const deleteUrl = `https://go-autocar.herokuapp.com/car/${carId}`;
+            const deleteUrl = `https://kind-rose-beaver-tam.cyclic.app/car/${carId}`;
 
             axios
                 .put(deleteUrl, {
@@ -55,7 +55,7 @@ const CarDetails = () => {
             parseInt(data.addToInventory) + parseInt(carQuantity);
         setCarQuantity(updatedCars);
 
-        const addUrl = `https://go-autocar.herokuapp.com/car/${carId}`;
+        const addUrl = `https://kind-rose-beaver-tam.cyclic.app/car/${carId}`;
 
         axios
             .put(addUrl, {

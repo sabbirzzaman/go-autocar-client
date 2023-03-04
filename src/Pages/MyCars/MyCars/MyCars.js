@@ -21,7 +21,7 @@ const MyCars = () => {
     useEffect(() => {
         const getCars = async () => {
             try {
-                const url = `https://go-autocar.herokuapp.com/my-cars?email=${user?.email}`;
+                const url = `https://kind-rose-beaver-tam.cyclic.app/my-cars?email=${user?.email}`;
 
                 const { data } = await axios.get(url, {
                     headers: {
@@ -56,7 +56,7 @@ const MyCars = () => {
                     onClick: () => {
                         axios
                             .delete(
-                                `https://go-autocar.herokuapp.com/car/${id}`
+                                `https://kind-rose-beaver-tam.cyclic.app/car/${id}`
                             )
                             .then((res) => {
                                 const remainingCars = cars.filter(

@@ -18,14 +18,14 @@ const ManageInventory = () => {
     const [filter, setFilter] = useState(10);
 
     // get inventory data
-    const carsUrl = `https://go-autocar.herokuapp.com/cars?page=${currentPage}&filter=${filter}`;
+    const carsUrl = `https://kind-rose-beaver-tam.cyclic.app/cars?page=${currentPage}&filter=${filter}`;
 
     useEffect(() => {
         axios.get(carsUrl).then((res) => {setCars(res.data)});
     }, [currentPage, filter]);
 
     // get product count
-    const pagesUrl = 'https://go-autocar.herokuapp.com/cars-pages';
+    const pagesUrl = 'https://kind-rose-beaver-tam.cyclic.app/cars-pages';
 
     useEffect(() => {
         axios.get(pagesUrl).then((res) => {
@@ -48,7 +48,7 @@ const ManageInventory = () => {
                     onClick: () => {
                         axios
                             .delete(
-                                `https://go-autocar.herokuapp.com/car/${id}`
+                                `https://kind-rose-beaver-tam.cyclic.app/car/${id}`
                             )
                             .then((res) => {
                                 const remainingCars = cars.filter(

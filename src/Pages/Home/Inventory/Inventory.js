@@ -12,7 +12,7 @@ const Inventory = () => {
     const navigate = useNavigate();
 
     // get inventory data using custom hook
-    const {data, isLoading} = useQuery('cars', () => axios.get('https://go-autocar.herokuapp.com/cars'))
+    const {data, isLoading} = useQuery('cars', () => axios.get('https://kind-rose-beaver-tam.cyclic.app/cars'))
 
     if(isLoading) {
         return <Loading></Loading>

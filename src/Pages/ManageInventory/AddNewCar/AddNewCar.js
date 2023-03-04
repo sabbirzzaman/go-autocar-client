@@ -16,7 +16,7 @@ const AddNewCar = () => {
     const [user] = useAuthState(auth);
 
     // Add a new to car to the inventory
-    const url = `https://go-autocar.herokuapp.com/cars?email=${user.email}`;
+    const url = `https://kind-rose-beaver-tam.cyclic.app/cars?email=${user.email}`;
 
     const onSubmit = (data) => {
         axios.post(url, data).then((res) => {
